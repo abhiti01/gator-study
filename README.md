@@ -23,3 +23,4 @@ This is our term project for CEN 5035, Software Engineering. This project will c
 ## Technologies Involved
 
  - React - The web framework used
+ - Golang - Used for Backend Web Development
