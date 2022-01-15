@@ -24,5 +24,6 @@ This is our term project for CEN 5035, Software Engineering. This project will c
 
  - React - The web framework used.
  - Golang - Used for Backend Web Development.
-
+ - MySQL - Used for database management
+ 
 ![stack](https://user-images.githubusercontent.com/33253758/149400789-1cd7b443-c048-4210-9df2-698432760f80.png)
