@@ -19,7 +19,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import { mainListItems } from './list-items';
 
 function Copyright(props) {
   return (
@@ -137,6 +137,7 @@ function DashboardContent() {
             </IconButton>
           </Toolbar>
           <Divider />
+          <List>{mainListItems}</List>
           <Divider />
 
         </Drawer>

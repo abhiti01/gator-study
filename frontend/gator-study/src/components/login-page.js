@@ -5,10 +5,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import Link2 from '@mui/material/Link';
+import IconButton from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -17,9 +20,9 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link2 color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{' '}
+      </Link2>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -52,7 +55,10 @@ export default function SignIn() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            <IconButton color="inherit" component={Link} to="/">
+                <AccountCircleIcon/> 
+                {/* change this to app icon */}
+            </IconButton>
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
@@ -92,14 +98,14 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link2 href="#" variant="body2">
                   Forgot password?
-                </Link>
+                </Link2>
               </Grid>
               <Grid item>
-                <Link href="/register" variant="body2">
+                <Link2 href="/register" variant="body2">
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </Link2>
               </Grid>
             </Grid>
           </Box>
