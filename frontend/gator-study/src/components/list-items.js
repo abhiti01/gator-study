@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import { Link } from "react-router-dom";
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -21,7 +22,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to="/timer">
       <ListItemIcon>
         <TimerIcon />
       </ListItemIcon>
