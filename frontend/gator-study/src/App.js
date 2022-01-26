@@ -13,7 +13,7 @@ export default function App() {
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/register" component={SignUp} />
-        <Route exact path="/timer" component={Timer} />
+        {/* <Route exact path="/timer" component={Timer} /> */}
         {/* <Route exact path="/logout" component={LogoutPage} /> */}
     </Router>
   );

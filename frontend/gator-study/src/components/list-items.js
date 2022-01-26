@@ -16,7 +16,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem button component={Link} to="/">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>

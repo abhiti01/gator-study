@@ -19,9 +19,9 @@ const Timer = () => {
       <Controls />
       <div className="timer__controllers">
         <Break />
+        <ThemeToggle />
         <Session />
       </div>
-      <ThemeToggle />
     </div>
   );
 }

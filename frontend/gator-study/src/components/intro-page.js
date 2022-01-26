@@ -14,13 +14,13 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Link2 from '@mui/material/Link';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { mainListItems } from './list-items';
-
+import Timer from './timer/Timer'
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -88,10 +88,8 @@ function DashboardContent() {
   };
 
   return (
-    <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <AppBar position="absolute" open={open}>
+    <>
+    <AppBar position="absolute" open={open}>
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed
@@ -123,6 +121,11 @@ function DashboardContent() {
             </IconButton>
           </Toolbar>
         </AppBar>
+    <Router>
+    <ThemeProvider theme={mdTheme}>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
@@ -154,43 +157,24 @@ function DashboardContent() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                </Paper>
+              {/* Chart */}
+              <Grid item xs={12} md={12} lg={12}>
+                  <Route path="/timer" exact component={Timer} />
               </Grid>
               {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                </Paper>
-              </Grid>
+    
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+
           </Container>
         </Box>
       </Box>
     </ThemeProvider>
+    {/* <Route path="/timer" exact component={Timer} /> */}
+    {/* <Route path="/about" component={About} /> */}
+    </Router>
+    </>
   );
 }
 
