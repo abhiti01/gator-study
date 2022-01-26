@@ -15,6 +15,7 @@ export default function App() {
         <Route exact path="/register" component={SignUp} />
         {/* <Route exact path="/timer" component={Timer} /> */}
         {/* <Route exact path="/logout" component={LogoutPage} /> */}
+        {/* comment */}
     </Router>
   );
 }
