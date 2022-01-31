@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Redirect} from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -31,16 +32,38 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+  const [fullName] = React.useState('');
+  const [email] = React.useState('');
+  const [password] = React.useState('');
+  const [redirect, setRedirect] = React.useState(false);
+
+  const handleSubmit = async(e) => { 
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
     // eslint-disable-next-line no-console
     console.log({
+      fullName: data.get('firstName') +" "+ data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
     });
-  };
+
+    await fetch('http://localhost:8000/api/register', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        fullName,
+        email,
+        password
+      })
+    });
+    setRedirect(true);
+  }
+
+  if (redirect) {
+    return <Redirect to="/login"/>;
+  }
 
   return (
     <ThemeProvider theme={theme}>
