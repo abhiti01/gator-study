@@ -4,7 +4,8 @@
 import { Box } from "@chakra-ui/react"
 import React, { useEffect, useState,useRef } from "react"
 import Alarm from "../components/Alarm";
-import { ModalSettings } from "../components/ModalSettings";
+import ModalSettings from "../components/ModalSettings";
+
 import { Navigation } from "../components/Navigations"
 import { Timer } from "../components/Timer"
 
