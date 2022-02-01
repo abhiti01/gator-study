@@ -2,9 +2,11 @@
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
 import { Box } from "@chakra-ui/react"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState,useRef } from "react"
+import Alarm from "../components/Alarm";
 import { Navigation } from "../components/Navigations"
 import { Timer } from "../components/Timer"
+
 export default function Home() {
   const [pomodoro, setPomodoro] = useState(1);
   const [shortBreak, setShortBreak] = useState(5);
@@ -13,6 +15,7 @@ export default function Home() {
   const [stage, setStage] = useState(0);
   const [ticking, setTicking] = useState(false);
   const [consumedSecond, setConsumedSecond] = useState(0);
+  const alarmRef = useRef();
   const switchState = (index) => {
     const isYes = consumedSecond && stage !== index
     ? confirm("Are you sure you want to switch?")
@@ -25,6 +28,10 @@ export default function Home() {
   }
     setStage(index);
   };
+  const timeUp = () =>{
+    reset();
+    alarmRef.current.play();
+  }
   const reset = () =>{
     setTicking(false);
     setPomodoro(5);
@@ -56,7 +63,7 @@ export default function Home() {
       if(stage == 0)
       {
         alert("Interval over!");
-        reset();
+        timeUp();
         // switchState(1);
         // setMinutes(() => getTime());
         // setSecond(0);
@@ -88,6 +95,7 @@ export default function Home() {
     <div >
       <Navigation />
       <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} setTicking = {setTicking}/>
+      <Alarm ref = {alarmRef}/>
     </div>
   )
 }
