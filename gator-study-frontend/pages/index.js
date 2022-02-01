@@ -15,7 +15,12 @@ export default function Home() {
   const [stage, setStage] = useState(0);
   const [ticking, setTicking] = useState(false);
   const [consumedSecond, setConsumedSecond] = useState(0);
+  const [isTimeUp, setIsTimeUp] = useState(false);
   const alarmRef = useRef();
+  const muteAlarm = () => {
+    alarmRef.current.pause();
+    alarmRef.current.currentTime = 0;
+  };
   const switchState = (index) => {
     const isYes = consumedSecond && stage !== index
     ? confirm("Are you sure you want to switch?")
@@ -30,6 +35,7 @@ export default function Home() {
   };
   const timeUp = () =>{
     reset();
+    setIsTimeUp(true);
     alarmRef.current.play();
   }
   const reset = () =>{
@@ -39,6 +45,11 @@ export default function Home() {
     setLongBreak(10);
     setSecond(0);
     setConsumedSecond(false)
+  };
+  const startTimer = () => {
+    setIsTimeUp(false);
+    muteAlarm();
+    setTicking((ticking) => !ticking);
   };
   const getTime = () => {
     const timeStage = {
@@ -94,7 +105,7 @@ export default function Home() {
   return (
     <div >
       <Navigation />
-      <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} setTicking = {setTicking}/>
+      <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} startTimer = {startTimer} muteAlarm = {muteAlarm} isTimeUp= {isTimeUp} reset = {reset}/>
       <Alarm ref = {alarmRef}/>
     </div>
   )
