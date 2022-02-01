@@ -2,7 +2,14 @@ import React from 'react';
 import { Icon } from '@chakra-ui/react'
 import {MdNightlightRound} from 'react-icons/md'
 import { inputToRGB } from '@ctrl/tinycolor';
-export const ModalSettings = (pomodoroRef,shortBreakRef,longBreakRef) => {
+function ModalSetting({
+	pomodoroRef,
+	shortBreakRef,
+	longBreakRef,
+	openSetting,
+	setOpenSetting,
+	updateTimeDefaultValue,
+}) {
     const inputs = [
 		{
 			value: "pomodoro",
@@ -39,4 +46,5 @@ export const ModalSettings = (pomodoroRef,shortBreakRef,longBreakRef) => {
         </button>
     </div>
   );
-};
+}
+export default React.memo(ModalSetting);
