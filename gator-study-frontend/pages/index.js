@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react"
 import { Navigation } from "../components/Navigations"
 import { Timer } from "../components/Timer"
 export default function Home() {
-  const [pomodoro, setPomodoro] = useState(25);
+  const [pomodoro, setPomodoro] = useState(1);
   const [shortBreak, setShortBreak] = useState(5);
   const [longBreak, setLongBreak] = useState(10);
   const [seconds, setSecond] = useState(0);
@@ -45,9 +45,15 @@ export default function Home() {
       //   setMinutes((minute) => getTime())
       //   setSecond((second) => 0)
       // }
-      alert('Timer finish')
+      if(stage == 0)
+      {
+        switchState(1)
+        setMinutes(() => getTime())
+        setSecond(() => 0)
+      }
       
-    } else if(seconds === 0){
+    }
+      else if(seconds === 0){
       setMinutes((minute) => minute-1);
       setSecond(59);
     } else{
@@ -64,7 +70,7 @@ export default function Home() {
     return () => {
       clearInterval(timer);
     };
-  },[seconds, pomodoro, shortBreak, longBreak, ticking]);
+  },[stage,seconds, pomodoro, shortBreak, longBreak, ticking]);
 
 
   return (
