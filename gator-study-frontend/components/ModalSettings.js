@@ -28,7 +28,10 @@ function ModalSetting({
 		},
 	];
   return (
-    <div>
+    <div className={` ${
+        openSetting ? "" : "hidden"
+    }`}
+    onClick={() => setOpenSetting(false)}>
         <div>
             <h1>Time setting</h1>
         </div>
@@ -41,7 +44,7 @@ function ModalSetting({
                 )
             })}
         </div>
-        <button>
+        <button onClick={updateTimeDefaultValue}>
             Save
         </button>
     </div>

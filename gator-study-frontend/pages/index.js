@@ -6,7 +6,7 @@ import React, { useEffect, useState,useRef } from "react"
 import Alarm from "../components/Alarm";
 import ModalSettings from "../components/ModalSettings";
 
-import { Navigation } from "../components/Navigations"
+import Navigation from "../components/Navigations"
 import { Timer } from "../components/Timer"
 
 export default function Home() {
@@ -18,11 +18,19 @@ export default function Home() {
   const [ticking, setTicking] = useState(false);
   const [consumedSecond, setConsumedSecond] = useState(0);
   const [isTimeUp, setIsTimeUp] = useState(false);
+  const [openSetting, setOpenSetting] = useState(false);
   const alarmRef = useRef();
-  const muteAlarm = () => {
-    alarmRef.current.pause();
-    alarmRef.current.currentTime = 0;
-  };
+  const pomodoroRef = useRef();
+  const shortBreakRef = useRef();
+  const longBreakRef = useRef();
+  const updateTimeDefaultValue = () =>{
+    setPomodoro(pomodoroRef.current.value);
+    setShortBreak(shortBreakRef.current.value);
+    setLongBreak(longBreakRef.current.value);
+    setOpenSetting(false);
+    setSecond(0);
+  }
+
   const switchState = (index) => {
     const isYes = consumedSecond && stage !== index
     ? confirm("Are you sure you want to switch?")
@@ -90,6 +98,10 @@ export default function Home() {
       setSecond((second) => second-1);
     }
   };
+  const muteAlarm = () => {
+    alarmRef.current.pause();
+    alarmRef.current.currentTime = 0;
+  };
   useEffect(() => {
     const timer = setInterval(() => {
       if(ticking){
@@ -106,10 +118,10 @@ export default function Home() {
 
   return (
     <div >
-      <Navigation />
+      <Navigation setOpenSetting = {setOpenSetting}/>
       <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} startTimer = {startTimer} muteAlarm = {muteAlarm} isTimeUp= {isTimeUp} reset = {reset}/>
-      <Alarm />
-      <ModalSettings />
+      <Alarm ref={alarmRef}/>
+      <ModalSettings openSetting={openSetting} setOpenSetting = {setOpenSetting} pomodoroRef = {pomodoroRef} longBreakRef = {longBreakRef} shortBreakRef = {shortBreakRef} updateTimeDefaultValue = {updateTimeDefaultValue}/>
     </div>
   )
 }
