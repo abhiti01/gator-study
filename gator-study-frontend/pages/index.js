@@ -12,8 +12,26 @@ export default function Home() {
   const [seconds, setSecond] = useState(0);
   const [stage, setStage] = useState(0);
   const [ticking, setTicking] = useState(false);
+  const [consumedSecond, setConsumedSecond] = useState(0);
   const switchState = (index) => {
+    const isYes = consumedSecond && stage !== index
+    ? confirm("Are you sure you want to switch?")
+    :false;
+  if (isYes){
+    reset();
     setStage(index);
+  } else if(!consumedSecond){
+    setStage(index);
+  }
+    setStage(index);
+  };
+  const reset = () =>{
+    setTicking(false);
+    setPomodoro(5);
+    setShortBreak(1);
+    setLongBreak(10);
+    setSecond(0);
+    setConsumedSecond(false)
   };
   const getTime = () => {
     const timeStage = {
@@ -35,21 +53,13 @@ export default function Home() {
     const minutes = getTime();
     const setMinutes = updateMinute();
     if(minutes === 0 && seconds === 0){
-      // if(stage === 0){
-      //   setStage(1)
-      //   setMinutes((minute) => getTime())
-      //   setSecond((second) => 0)
-      // }
-      // else{
-      //   setStage(0)
-      //   setMinutes((minute) => getTime())
-      //   setSecond((second) => 0)
-      // }
       if(stage == 0)
       {
-        switchState(1)
-        setMinutes(() => getTime())
-        setSecond(() => 0)
+        alert("Interval over!");
+        reset();
+        // switchState(1);
+        // setMinutes(() => getTime());
+        // setSecond(0);
       }
       
     }
@@ -63,6 +73,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       if(ticking){
+        setConsumedSecond((value) => value+1);
         clockTicking();
       }
       
