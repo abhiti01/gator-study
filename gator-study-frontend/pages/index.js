@@ -4,6 +4,7 @@
 import { Box } from "@chakra-ui/react"
 import React, { useEffect, useState,useRef } from "react"
 import Alarm from "../components/Alarm";
+import { ModalSettings } from "../components/ModalSettings";
 import { Navigation } from "../components/Navigations"
 import { Timer } from "../components/Timer"
 
@@ -17,10 +18,7 @@ export default function Home() {
   const [consumedSecond, setConsumedSecond] = useState(0);
   const [isTimeUp, setIsTimeUp] = useState(false);
   const alarmRef = useRef();
-  const muteAlarm = () => {
-    alarmRef.current.pause();
-    alarmRef.current.currentTime = 0;
-  };
+ 
   const switchState = (index) => {
     const isYes = consumedSecond && stage !== index
     ? confirm("Are you sure you want to switch?")
@@ -33,24 +31,7 @@ export default function Home() {
   }
     setStage(index);
   };
-  const timeUp = () =>{
-    reset();
-    setIsTimeUp(true);
-    alarmRef.current.play();
-  }
-  const reset = () =>{
-    setTicking(false);
-    setPomodoro(5);
-    setShortBreak(1);
-    setLongBreak(10);
-    setSecond(0);
-    setConsumedSecond(false)
-  };
-  const startTimer = () => {
-    setIsTimeUp(false);
-    muteAlarm();
-    setTicking((ticking) => !ticking);
-  };
+
   const getTime = () => {
     const timeStage = {
       0: pomodoro,
@@ -58,7 +39,8 @@ export default function Home() {
       2: longBreak
     };
     return timeStage[stage];
-  }
+  };
+
   const updateMinute = () => {
     const updateStage = {
       0: setPomodoro,
@@ -67,6 +49,17 @@ export default function Home() {
     };
     return updateStage[stage];
   };
+
+
+  const reset = () =>{
+    setTicking(false);
+    setPomodoro(5);
+    setShortBreak(1);
+    setLongBreak(10);
+    setSecond(0);
+    setConsumedSecond(false)
+  };
+
   const clockTicking = () => {
     const minutes = getTime();
     const setMinutes = updateMinute();
@@ -75,9 +68,6 @@ export default function Home() {
       {
         alert("Interval over!");
         timeUp();
-        // switchState(1);
-        // setMinutes(() => getTime());
-        // setSecond(0);
       }
       
     }
@@ -88,6 +78,23 @@ export default function Home() {
       setSecond((second) => second-1);
     }
   };
+
+
+  const timeUp = () =>{
+    reset();
+    setIsTimeUp(true);
+    alarmRef.current.play();
+  };
+  const muteAlarm = () => {
+    alarmRef.current.pause();
+    alarmRef.current.currentTime = 0;
+  };
+  const startTimer = () => {
+    setIsTimeUp(false);
+    muteAlarm();
+    setTicking((ticking) => !ticking);
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
       if(ticking){
@@ -105,8 +112,9 @@ export default function Home() {
   return (
     <div >
       <Navigation />
-      <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} startTimer = {startTimer} muteAlarm = {muteAlarm} isTimeUp= {isTimeUp} reset = {reset}/>
+      <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} startTimer = {startTimer} isTimeUp= {isTimeUp} reset = {reset}/>
       <Alarm ref = {alarmRef}/>
+      <ModalSettings></ModalSettings>
     </div>
   )
 }
