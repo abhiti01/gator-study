@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Redirect} from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -32,7 +33,10 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [redirect, setRedirect] = React.useState(false);
+  const handleSubmit = async(event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
@@ -40,7 +44,20 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    await fetch('http://localhost:8000/api/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email,
+        password
+      })
+    });
+    setRedirect(true);
   };
+
+  if (redirect) {
+    return <Redirect to="/"/>;
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -73,6 +90,7 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange = {e => setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -83,6 +101,7 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange = {e=> setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
