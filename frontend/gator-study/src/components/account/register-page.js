@@ -34,9 +34,9 @@ const theme = createTheme();
 
 
 export default function SignUp() {
-  const [fullName] = React.useState('');
-  const [email] = React.useState('');
-  const [password] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
   const [redirect, setRedirect] = React.useState(false);
 
   const handleSubmit = async(e) => { 
@@ -44,7 +44,7 @@ export default function SignUp() {
     const data = new FormData(e.currentTarget);
     // eslint-disable-next-line no-console
     console.log({
-      fullName: data.get('firstName') +" "+ data.get('lastName'),
+      fullName: data.get('firstName') + " " + data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
     });
@@ -53,7 +53,7 @@ export default function SignUp() {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        fullName,
+        name,
         email,
         password
       })
@@ -97,6 +97,7 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  onChange={e => setName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -117,6 +118,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={e => setEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -128,6 +130,7 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={e => setPassword(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
