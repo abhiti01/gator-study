@@ -21,7 +21,7 @@ export const Timer = ({stage,switchState,getTime,seconds, ticking, startTimer, i
         Long break
     </Button>
     </Stack>
-      <Box>
+      <Box margin={2}>
           <Circle bg='tomato' size = '120px'><Heading >{getTime()}:{seconds}</Heading></Circle>
           
       </Box>
