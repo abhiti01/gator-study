@@ -1,30 +1,44 @@
 import React from 'react';
 import { MdScreenLockLandscape } from 'react-icons/md';
 import { FiBellOff } from 'react-icons/fa';
-
+import { Button, ButtonGroup, Circle, Container, Heading } from '@chakra-ui/react'
+import { Stack, HStack, VStack } from '@chakra-ui/react'
+import { MdOutlineFreeBreakfast , MdFastfood } from "react-icons/md"
+import { TimeIcon,EmailIcon, ArrowForwardIcon, WarningIcon } from '@chakra-ui/icons'
+import { Box } from '@chakra-ui/react'
 export const Timer = ({stage,switchState,getTime,seconds, ticking, startTimer, isTimeUp, muteAlarm,reset}) => {
     const options = ["pomodoro", "short break", "long break"]
-  return <div>
+  return <Container maxW='container.md' centerContent>
+      
+      <Stack direction='row' spacing={4}>
+    <Button rightIcon={<TimeIcon />} colorScheme='teal' variant='solid' onClick={() => switchState(0)}>
+        Pomodoro
+    </Button>
+    <Button rightIcon={<MdOutlineFreeBreakfast />} colorScheme='teal' variant='solid' onClick={() => switchState(1)}>
+        Short Break
+    </Button>
+    <Button rightIcon={< MdFastfood />} colorScheme='teal' variant='solid' onClick={() => switchState(2)}>
+        Long break
+    </Button>
+    </Stack>
+      <Box>
+          <Circle bg='tomato' size = '120px'><Heading >{getTime()}:{seconds}</Heading></Circle>
+          
+      </Box>
       <div>
-          {options.map((option,index) =>{
-              return <h1 key = {index} onClick = {() => switchState(index)}> {option} </h1>
-          })}
-      </div>
-      <div>
-          <h2>{getTime()}:{seconds}</h2>
-      </div>
-      <div>
-            <button onClick={startTimer}>
+          <Stack direction='row' spacing={4}>
+            <Button colorScheme='teal' variant='solid' onClick={startTimer}>
                 {ticking? "Stop":"Start"}
                 
-            </button>
+            </Button>
             {/* {isTimeUp && (
                     <FiBellOff
                     onClick = {muteAlarm} />
                 )} */}
-            {ticking && (<button onClick={reset}>
+            {ticking && (<Button colorScheme='teal' variant='solid' onClick={reset}>
                 Reset
-            </button>)}
+            </Button>)}
+        </Stack>
       </div>
-  </div>;
+  </Container>;
 };
