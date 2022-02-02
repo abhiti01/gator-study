@@ -18,10 +18,10 @@ export const Timer = ({stage,switchState,getTime,seconds, ticking, startTimer, i
                 {ticking? "Stop":"Start"}
                 
             </button>
-            {isTimeUp && (
+            {/* {isTimeUp && (
                     <FiBellOff
                     onClick = {muteAlarm} />
-                )}
+                )} */}
             {ticking && (<button onClick={reset}>
                 Reset
             </button>)}

@@ -5,9 +5,9 @@ import { Box } from "@chakra-ui/react"
 import React, { useEffect, useState,useRef } from "react"
 import Alarm from "../components/Alarm";
 import ModalSettings from "../components/ModalSettings";
-
+import {Timer} from "../components/Timer"; 
 import Navigation from "../components/Navigations"
-import { Timer } from "../components/Timer"
+
 
 export default function Home() {
   const [pomodoro, setPomodoro] = useState(1);
@@ -43,11 +43,6 @@ export default function Home() {
   }
     setStage(index);
   };
-  const timeUp = () =>{
-    reset();
-    setIsTimeUp(true);
-    alarmRef.current.play();
-  }
   const reset = () =>{
     setTicking(false);
     setPomodoro(5);
@@ -56,6 +51,12 @@ export default function Home() {
     setSecond(0);
     setConsumedSecond(false)
   };
+  const timeUp = () =>{
+    reset();
+    setIsTimeUp(true);
+    alarmRef.current.play();
+  };
+
   const startTimer = () => {
     setIsTimeUp(false);
     muteAlarm();
@@ -81,17 +82,10 @@ export default function Home() {
     const minutes = getTime();
     const setMinutes = updateMinute();
     if(minutes === 0 && seconds === 0){
-      if(stage == 0)
-      {
-        alert("Interval over!");
-        timeUp();
-        // switchState(1);
-        // setMinutes(() => getTime());
-        // setSecond(0);
-      }
-      
+      alert("Interval over!");
+      timeUp();
     }
-      else if(seconds === 0){
+    else if(seconds === 0){
       setMinutes((minute) => minute-1);
       setSecond(59);
     } else{
@@ -119,7 +113,7 @@ export default function Home() {
   return (
     <div >
       <Navigation setOpenSetting = {setOpenSetting}/>
-      <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} startTimer = {startTimer} muteAlarm = {muteAlarm} isTimeUp= {isTimeUp} reset = {reset}/>
+      <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} startTimer = {startTimer} muteAlarm = {muteAlarm} reset = {reset}/>
       <Alarm ref={alarmRef}/>
       <ModalSettings openSetting={openSetting} setOpenSetting = {setOpenSetting} pomodoroRef = {pomodoroRef} longBreakRef = {longBreakRef} shortBreakRef = {shortBreakRef} updateTimeDefaultValue = {updateTimeDefaultValue}/>
     </div>
