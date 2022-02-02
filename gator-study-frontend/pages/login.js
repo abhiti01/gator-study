@@ -29,21 +29,19 @@ const Login = () => {
           <div >
             <label htmlFor="email">Email address</label>
             <input
-              
+              value={email}
               type="email"
-              className="form-control"
               id="email"
               aria-describedby="emailHelp"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="form-group">
+          <div>
             <label htmlFor="password">Password</label>
             <input
-            
+              value={secret}
               onChange={(e) => setSecret(e.target.value)}
               type="password"
-              className="form-control"
               id="password"
             />
           </div>
