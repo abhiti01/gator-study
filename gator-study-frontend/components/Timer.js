@@ -22,7 +22,7 @@ export const Timer = ({stage,switchState,getTime,seconds, ticking, startTimer, i
     </Button>
     </Stack>
       <Box margin={2}>
-          <Circle bg='tomato' size = '120px'><Heading >{getTime()}:{seconds}</Heading></Circle>
+          <Circle borderWidth="5px" borderColor='black' bg='white' size = '120px'><Heading >{getTime()}:{seconds}</Heading></Circle>
           
       </Box>
       <div>

@@ -1,7 +1,7 @@
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
-import { Box } from "@chakra-ui/react"
+import { Box, Container } from "@chakra-ui/react"
 import React, { useEffect, useState,useRef } from "react"
 import Alarm from "../components/Alarm";
 import ModalSettings from "../components/ModalSettings";
@@ -113,9 +113,11 @@ export default function Home() {
   return (
     <div >
       <Navigation setOpenSetting = {setOpenSetting}/>
+      <Container borderRadius="lg" bg='teal.100' padding="4">
       <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} startTimer = {startTimer} muteAlarm = {muteAlarm} reset = {reset}/>
       <Alarm ref={alarmRef}/>
       <ModalSettings openSetting={openSetting} setOpenSetting = {setOpenSetting} pomodoroRef = {pomodoroRef} longBreakRef = {longBreakRef} shortBreakRef = {shortBreakRef} updateTimeDefaultValue = {updateTimeDefaultValue}/>
+      </Container>
     </div>
   )
 }
