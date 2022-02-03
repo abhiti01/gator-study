@@ -7,8 +7,6 @@ function ModalSetting({
 	pomodoroRef,
 	shortBreakRef,
 	longBreakRef,
-	openSetting,
-	setOpenSetting,
 	updateTimeDefaultValue,
 }) {
     const inputs = [
