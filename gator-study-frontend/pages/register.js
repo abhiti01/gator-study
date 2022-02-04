@@ -28,6 +28,11 @@ const Register = () => {
       })
     })
     const data = await response.json()
+    if(null!= data.id && data.id>0){
+      redirect: {
+        destination: '/'
+      }
+    }
     }
   };
 
