@@ -11,6 +11,7 @@ import { Container,Heading,Button, FormLabel, FormControl,Input } from "@chakra-
 
 const Register = () => {
   const {name,email, secret, setName,setEmail,setSecret} = useContext(Context);
+  const router = useRouter();
 
 
   const onRegisterSubmit = async(e) => {
@@ -28,11 +29,7 @@ const Register = () => {
       })
     })
     const data = await response.json()
-    if(null!= data.id && data.id>0){
-      redirect: {
-        destination: '/'
-      }
-    }
+    router.push('/');
     }
   };
 
