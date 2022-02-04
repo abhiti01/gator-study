@@ -45,9 +45,9 @@ export default function Home() {
   };
   const reset = () =>{
     setTicking(false);
-    setPomodoro(5);
-    setShortBreak(1);
-    setLongBreak(10);
+    setPomodoro(pomodoroRef.current.value);
+    setShortBreak(shortBreakRef.current.value);
+    setLongBreak(longBreakRef.current.value);
     setSecond(0);
     setConsumedSecond(false)
   };
