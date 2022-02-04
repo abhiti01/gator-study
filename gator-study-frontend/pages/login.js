@@ -11,7 +11,7 @@ import { Container,Heading,Button, FormLabel, FormControl,Input } from "@chakra-
 
 const Login = () => {
   const {email, secret, setEmail,setSecret} = useContext(Context);
-
+  const router = useRouter();
 
   const onLoginSubmit = async(e) => {
     e.preventDefault();
@@ -27,6 +27,7 @@ const Login = () => {
       })
     })
     const data = await response.json()
+    router.push('/');
     }
   };
 
