@@ -77,8 +77,8 @@ export default function Simple(setUserLogin) {
                 />
               </MenuButton>
               <MenuList>
-                <MenuItem><Link href='/login'>login/signup</Link></MenuItem>
-                <MenuItem>Link 2</MenuItem>
+                <MenuItem><Link href='/login'>Login</Link></MenuItem>
+                <MenuItem><Link href='/register'>Sign Up</Link></MenuItem>
                 <MenuDivider />
                 <MenuItem>Link 3</MenuItem>
               </MenuList>
