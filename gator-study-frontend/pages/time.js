@@ -18,7 +18,7 @@ export default function Home() {
   const [ticking, setTicking] = useState(false);
   const [consumedSecond, setConsumedSecond] = useState(0);
   const [isTimeUp, setIsTimeUp] = useState(false);
-  const [openSetting, setOpenSetting] = useState(false);
+  // const [openSetting, setOpenSetting] = useState(false);
   const alarmRef = useRef();
   const pomodoroRef = useRef();
   const shortBreakRef = useRef();
@@ -27,7 +27,7 @@ export default function Home() {
     setPomodoro(pomodoroRef.current.value);
     setShortBreak(shortBreakRef.current.value);
     setLongBreak(longBreakRef.current.value);
-    setOpenSetting(false);
+    // setOpenSetting(false);
     setSecond(0);
   }
 
@@ -112,11 +112,10 @@ export default function Home() {
 
   return (
     <div >
-      <Navigation setOpenSetting = {setOpenSetting}/>
       <Container borderRadius="lg" bg='teal.100' padding="4">
       <Timer stage = {stage} switchState = {switchState} getTime = {getTime} seconds = {seconds} ticking = {ticking} startTimer = {startTimer} muteAlarm = {muteAlarm} reset = {reset}/>
       <Alarm ref={alarmRef}/>
-      <ModalSettings openSetting={openSetting} setOpenSetting = {setOpenSetting} pomodoroRef = {pomodoroRef} longBreakRef = {longBreakRef} shortBreakRef = {shortBreakRef} updateTimeDefaultValue = {updateTimeDefaultValue}/>
+      <ModalSettings pomodoroRef = {pomodoroRef} longBreakRef = {longBreakRef} shortBreakRef = {shortBreakRef} updateTimeDefaultValue = {updateTimeDefaultValue}/>
       </Container>
     </div>
   )

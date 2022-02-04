@@ -3,6 +3,8 @@ import Router from "next/router";
 import {Context} from "../context";
 import {useRouter} from 'next/router';
 import axios from 'axios';
+import Link from 'next/link'
+import { Container,Heading,Button, FormLabel, FormControl,Input } from "@chakra-ui/react";
 // import Layout from "../component/Layout";
 // import { login } from "../requests/userApi";
 // import useUser from "../data/useUser";
@@ -21,37 +23,28 @@ const Login = () => {
   };
 
   return (
-    // <Layout title="login">
-      <div >
-        <h2 > login </h2>
-
+      <Container centerContent>
+        <Heading > Login </Heading>
         <form onSubmit={onLoginSubmit}>
-          <div >
-            <label htmlFor="email">Email address</label>
-            <input
-              value={email}
+            <FormLabel htmlFor="email">Email address</FormLabel>
+            <Input
               type="email"
               id="email"
               aria-describedby="emailHelp"
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              value={secret}
+            <FormLabel htmlFor="password">Password</FormLabel>
+            <Input
               onChange={(e) => setSecret(e.target.value)}
               type="password"
               id="password"
             />
-          </div>
-
-          <button type="submit" >
+        <Button type="submit" >
             Submit
-          </button>
+          </Button>
+
         </form>
-      </div>
-    // </Layout>
+        </Container>
   );
 };
 
