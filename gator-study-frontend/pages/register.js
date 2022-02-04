@@ -9,31 +9,44 @@ import { Container,Heading,Button, FormLabel, FormControl,Input } from "@chakra-
 // import { login } from "../requests/userApi";
 // import useUser from "../data/useUser";
 
-const Login = () => {
-  const {email, secret, setEmail,setSecret} = useContext(Context);
+const Register = () => {
+  const {name,email, secret, setName,setEmail,setSecret} = useContext(Context);
 
 
-  const onLoginSubmit = async(e) => {
+  const onRegisterSubmit = async(e) => {
     e.preventDefault();
     if (email && secret) {
     //   login({ email, password });
-    console.log(email,secret);
-    const response = await fetch('http://localhost:8000/api/login', {
+    console.log(name,email,secret);
+    const response = await fetch('http://localhost:8000/api/register', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
+        name,
         email,
         secret
       })
     })
     const data = await response.json()
+    if(null!= data.id && data.id>0){
+      redirect: {
+        destination: '/'
+      }
+    }
     }
   };
 
   return (
       <Container centerContent>
-        <Heading > Login </Heading>
-        <form onSubmit={onLoginSubmit}>
+        <Heading > Register </Heading>
+        <form onSubmit={onRegisterSubmit}>
+        <FormLabel htmlFor="name">Name</FormLabel>
+            <Input
+              type="name"
+              id="name"
+              aria-describedby="nameHelp"
+              onChange={(e) => setName(e.target.value)}
+            />
             <FormLabel htmlFor="email">Email address</FormLabel>
             <Input
               type="email"
@@ -56,4 +69,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

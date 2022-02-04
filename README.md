@@ -1,10 +1,8 @@
 # Gator-Study
 ## Contributors 
 
- - Front End - 
 	 - Abhiti Sachdeva
 	 - Yagya Malik
- - Back End - 
 	 - Akshat Srivastava
 	 - Naman Bhatia
 

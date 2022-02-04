@@ -3,6 +3,6 @@ package models
 type User struct {
 	Id       uint
 	Name     string
-	Email    string `gorm:"unique"`
+	Email    string
 	Password []byte `json:"-"`
 }
