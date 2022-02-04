@@ -2,12 +2,11 @@ import React from 'react';
 import { Icon } from '@chakra-ui/react'
 import {MdNightlightRound} from 'react-icons/md'
 import { inputToRGB } from '@ctrl/tinycolor';
+import { Heading,Stack,Container,Button,Input,Flex,Text,Box,Spacer } from '@chakra-ui/react';
 function ModalSetting({
 	pomodoroRef,
 	shortBreakRef,
 	longBreakRef,
-	openSetting,
-	setOpenSetting,
 	updateTimeDefaultValue,
 }) {
     const inputs = [
@@ -28,26 +27,31 @@ function ModalSetting({
 		},
 	];
   return (
-    <div className={` ${
+      <Container centerContent>
+    {/* <div className={` ${
         openSetting ? "" : "hidden"
-    }`}
-    onClick={() => setOpenSetting(false)}>
-        <div>
-            <h1>Time setting</h1>
-        </div>
-        <div>
+    }`} */}
+    {/* onClick={() => setOpenSetting(false)}> */}
+            <Heading marginBottom={2}>Time setting</Heading>
+        <Stack direction='row' spacing={4}>
             {inputs.map((input,index) =>{
-                return (<div key = {index}>
-                    <h1>{input.value}</h1>
-                    <input defaultValue= {input.defaultValue} type = "number" ref = {input.ref}/>
-                    </div>
+                return (<Flex key = {index}>
+                    <Box w={20}>
+                    <Text fontSize='l'>{input.value}</Text>
+                    </Box>
+                    <Spacer />
+                    <Box w={20}>
+                    <Input size = 'sm' variant = 'filled' placeholder='minutes' defaultValue= {input.defaultValue} type = "number" ref = {input.ref}/>
+                    </Box>
+                    </Flex>
                 )
             })}
-        </div>
-        <button onClick={updateTimeDefaultValue}>
+        </Stack>
+        <Button marginTop={2} colorScheme='teal' variant='solid' onClick={updateTimeDefaultValue}>
             Save
-        </button>
-    </div>
+        </Button>
+    {/* </div> */}
+    </Container>
   );
 }
 export default React.memo(ModalSetting);
