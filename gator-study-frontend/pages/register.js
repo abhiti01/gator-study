@@ -5,9 +5,6 @@ import {useRouter} from 'next/router';
 import axios from 'axios';
 import Link from 'next/link'
 import { Container,Heading,Button, FormLabel, FormControl,Input } from "@chakra-ui/react";
-// import Layout from "../component/Layout";
-// import { login } from "../requests/userApi";
-// import useUser from "../data/useUser";
 
 const Register = () => {
   const {name,email, secret, setName,setEmail,setSecret} = useContext(Context);
