@@ -20,7 +20,9 @@ Login page -
 
 Dashboard - 
 1. Created UI as discussed for landing page
-//todo yagya, Abhiti explain UI added
+2. Created Pomodoro timer
+3. Created switcher between work modes and break timer
+4. Created input fields to change timer durations
 
 Explain rest of the endpoints - //Akshat todo
 
