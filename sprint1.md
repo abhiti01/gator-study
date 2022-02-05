@@ -37,3 +37,6 @@ Dashboard -
 4. Created input fields to change timer durations
 
 Spill over story - integrate UI with getUsers API(Did not create UI for diplaying current user)
+
+Video Link for demo of what we have accomplished:
+https://youtu.be/heJD224nJ5s
