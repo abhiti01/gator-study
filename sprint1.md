@@ -1,13 +1,17 @@
 Points planned to deliver : 18
+
 Points delivered : 16
 
 Sprint velocity : 16
 
-Spill over story - integrate UI with getUsers API
-
 Targets achieved: 
 
-Overview: Created UI, endpoints and integrated both for the register, login flow
+Overview: 
+1. Learnt go and React to work on the user stories. 
+2. Performed most of the development using pair programming and did code review.
+3. Conducted standup meetings everyday to discuss the progress.
+4. Created UI, endpoints and integrated both for the register, login flow.
+5. Learnt to write unit tests.
 
 Register page - 
 1. Created UI as discussed for register page
@@ -19,7 +23,7 @@ Login page -
 3. Route user to dashboard once logged in
 
 Return User -
-1. Returning current user's  username, email-id, password and Idno. in database. The password is a encrpyted output generated using bcrypt library in go.
+1. Returning current user's  username, email-id, password and Id number in database. The password is a encrpyted output generated using bcrypt library in go.
 2. Cookie is valid for 24hrs from the login time.
 
 Logout -
@@ -32,5 +36,4 @@ Dashboard -
 3. Created switcher between work modes and break timer
 4. Created input fields to change timer durations
 
-
-
+Spill over story - integrate UI with getUsers API(Did not create UI for diplaying current user)
