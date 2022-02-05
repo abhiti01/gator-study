@@ -18,11 +18,19 @@ Login page -
 2. Created post end point to check credentials and return a token
 3. Route user to dashboard once logged in
 
+Return User -
+1. Returning current user's  username, email-id, password and Idno. in database. The password is a encrpyted output generated using bcrypt library in go.
+2. Cookie is valid for 24hrs from the login time.
+
+Logout -
+1. Updating the cookie timer to current time - 1hr to logout the user.
+2. Jwt or JSON web tokens are used to share security information between two parties mainly client and server.
+
 Dashboard - 
 1. Created UI as discussed for landing page
 2. Created Pomodoro timer
 3. Created switcher between work modes and break timer
 4. Created input fields to change timer durations
 
-Explain rest of the endpoints - //Akshat todo
+
 
