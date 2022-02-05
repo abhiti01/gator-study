@@ -1,9 +1,8 @@
 Points planned to deliver : 18
+
 Points delivered : 16
 
 Sprint velocity : 16
-
-Spill over story - integrate UI with getUsers API
 
 Targets achieved: 
 
@@ -19,7 +18,7 @@ Login page -
 3. Route user to dashboard once logged in
 
 Return User -
-1. Returning current user's  username, email-id, password and Idno. in database. The password is a encrpyted output generated using bcrypt library in go.
+1. Returning current user's  username, email-id, password and Id number in database. The password is a encrpyted output generated using bcrypt library in go.
 2. Cookie is valid for 24hrs from the login time.
 
 Logout -
@@ -32,5 +31,4 @@ Dashboard -
 3. Created switcher between work modes and break timer
 4. Created input fields to change timer durations
 
-
-
+Spill over story - integrate UI with getUsers API(Did not create UI for diplaying current user)
