@@ -6,7 +6,12 @@ Sprint velocity : 16
 
 Targets achieved: 
 
-Overview: Created UI, endpoints and integrated both for the register, login flow
+Overview: 
+1. Learnt go and React to work on the user stories. 
+2. Performed most of the development using pair programming and did code review.
+3. Conducted standup meetings everyday to discuss the progress.
+4. Created UI, endpoints and integrated both for the register, login flow.
+5. Learnt to write unit tests.
 
 Register page - 
 1. Created UI as discussed for register page
