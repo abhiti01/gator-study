@@ -28,8 +28,7 @@ const Register = () => {
         secret
       })
     })
-    const data = await response.json()
-    router.push('/');
+    await router.push('/login');
     }
   };
 
