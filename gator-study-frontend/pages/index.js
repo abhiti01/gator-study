@@ -4,16 +4,22 @@ import Home from "./time";
 import Simple from "../components/newNavBar";
 import Login from "./login";
 export default function Chats() {
-  const [userLogin, setUserLogin] = useState(false);
+  const[auth, setAuth] = useState(false);
   useEffect(() => {
     (
       async() => {
         try{
-          const response = await fetch('http://localhost:8000/api/user',{
+          const response = await fetch('http://localhost:8000/api/User',{
             credentials: 'include',
           });
           const content = await response.json();
-          console.log(content);
+          if (content.Name !== undefined){
+            console.log(content);
+            setAuth(true);
+          }
+          else{
+            setAuth(false);
+          }
         } catch (e){
           console.log("bad login");
         }
@@ -22,7 +28,7 @@ export default function Chats() {
     )();
   });
   return <div className="background">
-    <Simple setUserLogin = {setUserLogin}/>
+    <Simple auth = {auth}/>
     <Home />
      </div>;
 } 

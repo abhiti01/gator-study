@@ -19,6 +19,8 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import Home from '../pages/time';
 import ModalSettings from './ModalSettings';
+import { useRouter } from 'next/router';
+import { route } from 'next/dist/server/router';
 
 const Links = ['Gator-Study'];
 
@@ -36,9 +38,33 @@ const NavLink = ({ children }) => (
   </Link>
 );
 
-export default function Simple(setUserLogin) {
+export default function Simple(props) {
+  let menu;
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const router = useRouter();
+  const logout = async()=>{
+    await fetch('http://localhost:8000/api/logout',{
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include'
+    })
+    await router.push('/login');
+  }
+  if (!props.auth){
+    menu = (
+      <MenuList>
+        <MenuItem><Link href='/login'>Login</Link></MenuItem>
+      <MenuItem><Link href='/register'>Sign Up</Link></MenuItem>
+      </MenuList>
+      
+    )
+  } else {
+    menu = (
+      <MenuList>
+        <MenuItem><Button onClick={logout}> Logout </Button></MenuItem>
+      </MenuList>
+    )
+  }
   return (
     <>
       <Box bg = 'teal.500' px={4}>
@@ -76,12 +102,7 @@ export default function Simple(setUserLogin) {
                   }
                 />
               </MenuButton>
-              <MenuList>
-                <MenuItem><Link href='/login'>Login</Link></MenuItem>
-                <MenuItem><Link href='/register'>Sign Up</Link></MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
-              </MenuList>
+              {menu}
             </Menu>
           </Flex>
         </Flex>
