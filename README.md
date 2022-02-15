@@ -12,8 +12,8 @@ This is our term project for CEN 5035, Software Engineering. This project will c
 Students use tools such as Twitch, Discord, and YouTube as a group study platform. While these platforms work, they are not built to facilitate group studying. With our app we wish to builde a platform which students can use as an all in one solution for group studying.
 ## Feature List
 
- - [ ] A user can sign-up to use the application.
- - [ ] The student can then use the application as a simple Pomodoro timer.
+ - [x] A user can sign-up to use the application.
+ - [x] The student can then use the application as a simple Pomodoro timer.
  - [ ] The student can play and control music from YouTube/Spotify/Apple music via the web-app.
  - [ ] The student can pick between different calming effects to go along with the timer (such as Rain effects in the background).
  - [ ] The student can invite other students to join the study session. All the users will see the same Pomodoro timer.
