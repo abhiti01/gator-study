@@ -1,15 +1,12 @@
-// import Head from 'next/head'
-// import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
+
 import { Box, Container } from "@chakra-ui/react"
 import React, { useEffect, useState,useRef } from "react"
 import Alarm from "../components/Alarm";
 import ModalSettings from "../components/ModalSettings";
 import {Timer} from "../components/Timer"; 
-import Navigation from "../components/Navigations"
 
 
-export default function Home() {
+export default function Time() {
   const [pomodoro, setPomodoro] = useState(1);
   const [shortBreak, setShortBreak] = useState(5);
   const [longBreak, setLongBreak] = useState(10);
