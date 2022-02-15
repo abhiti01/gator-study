@@ -40,6 +40,7 @@ const Login = () => {
         <form onSubmit={onLoginSubmit}>
             <FormLabel htmlFor="email">Email address</FormLabel>
             <Input
+              data-cy="email"
               type="email"
               id="email"
               aria-describedby="emailHelp"
@@ -47,6 +48,7 @@ const Login = () => {
             />
             <FormLabel htmlFor="password">Password</FormLabel>
             <Input
+              data-cy="password"
               onChange={(e) => setSecret(e.target.value)}
               type="password"
               id="password"

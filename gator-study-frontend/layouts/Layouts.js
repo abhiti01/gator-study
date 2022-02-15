@@ -58,7 +58,7 @@ export default function Layout(props) {
   } else {
     menu = (
       <MenuList>
-        <MenuItem><Button onClick={logout}> Logout </Button></MenuItem>
+        <MenuItem><Button data-cy="logoutbtn"onClick={logout}> Logout </Button></MenuItem>
       </MenuList>
     )
   }
