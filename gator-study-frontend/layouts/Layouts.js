@@ -17,10 +17,7 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import Home from '../pages/time';
-import ModalSettings from './ModalSettings';
 import { useRouter } from 'next/router';
-import { route } from 'next/dist/server/router';
 
 const Links = ['Gator-Study'];
 
@@ -38,7 +35,7 @@ const NavLink = ({ children }) => (
   </Link>
 );
 
-export default function Simple(props) {
+export default function Layout(props) {
   let menu;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
@@ -118,7 +115,9 @@ export default function Simple(props) {
         ) : null}
       </Box>
 
-      <Box p={4}></Box>
+      <Box p={4}>
+            {props.children}
+        </Box>
     </>
   );
 }

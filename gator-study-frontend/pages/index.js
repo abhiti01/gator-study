@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Navigations from "../components/Navigations";
-import Home from "./time";
-import Simple from "../components/newNavBar";
-import Login from "./login";
+import Layout from "../layouts/Layouts";
+import Time from "./time";
+import Chat from "./chat";
 export default function Chats() {
   const[auth, setAuth] = useState(false);
   useEffect(() => {
@@ -28,7 +27,9 @@ export default function Chats() {
     )();
   });
   return <div className="background">
-    <Simple auth = {auth}/>
-    <Home />
+    <Layout auth = {auth}>
+      <Time />
+      {auth && <Chat></Chat>}
+    </Layout>
      </div>;
 } 

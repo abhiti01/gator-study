@@ -5,6 +5,7 @@ import {useRouter} from 'next/router';
 import axios from 'axios';
 import Link from 'next/link'
 import { Container,Heading,Button, FormLabel, FormControl,Input } from "@chakra-ui/react";
+import Layout from "../layouts/Layouts";
 // import Layout from "../component/Layout";
 // import { login } from "../requests/userApi";
 // import useUser from "../data/useUser";
@@ -33,6 +34,7 @@ const Login = () => {
   };
 
   return (
+    <Layout>
       <Container centerContent>
         <Heading > Login </Heading>
         <form onSubmit={onLoginSubmit}>
@@ -55,6 +57,7 @@ const Login = () => {
 
         </form>
         </Container>
+    </Layout>
   );
 };
 
