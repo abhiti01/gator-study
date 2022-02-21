@@ -29,7 +29,8 @@ export default function Chats() {
   return <div className="background">
     <Layout auth = {auth}>
       <Time />
-      {auth && <Chat></Chat>}
+      {/* {auth && <Chat></Chat>} */}
+      <Chat />
     </Layout>
      </div>;
 } 
