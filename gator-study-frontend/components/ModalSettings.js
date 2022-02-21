@@ -41,7 +41,7 @@ function ModalSetting({
                     </Box>
                     <Spacer />
                     <Box w={20}>
-                    <Input size = 'sm' variant = 'filled' placeholder='minutes' defaultValue= {input.defaultValue} type = "number" ref = {input.ref}/>
+                    <Input size = 'sm' style={{background:'white'}} placeholder='minutes' defaultValue= {input.defaultValue} type = "number" ref = {input.ref}/>
                     </Box>
                     </Flex>
                 )
