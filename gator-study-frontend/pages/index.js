@@ -4,6 +4,8 @@ import Time from "./time";
 import Chat from "./chat";
 export default function Chats() {
   const[auth, setAuth] = useState(false);
+  const [id, setId] = useState('');
+  const [name, setName] = useState('');
   useEffect(() => {
     (
       async() => {
@@ -15,6 +17,8 @@ export default function Chats() {
           if (content.Name !== undefined){
             console.log(content);
             setAuth(true);
+            setId(content.Id);
+            setName(content.Name);
           }
           else{
             setAuth(false);
@@ -27,10 +31,10 @@ export default function Chats() {
     )();
   });
   return <div className="background">
-    <Layout auth = {auth}>
+    <Layout auth = {auth} >
       <Time />
-      {/* {auth && <Chat></Chat>} */}
-      <Chat />
+      {auth && <Chat id = {id} name = {name}/>}
+      {/* <Chat /> */}
     </Layout>
      </div>;
 } 
