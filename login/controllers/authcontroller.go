@@ -26,10 +26,15 @@ func Register(c *fiber.Ctx) error {
 		Password: password,
 	}
 
-	database.DB.Create(&user)
+	result := database.DB.Create(&user)
 
+	if result.Error != nil {
+		c.Status(fiber.StatusInternalServerError)
+		return c.JSON(fiber.Map{
+			"message": "User could not be added",
+		})
+	}
 	return c.JSON(user)
-
 }
 
 func Login(c *fiber.Ctx) error {
@@ -39,7 +44,6 @@ func Login(c *fiber.Ctx) error {
 	if err != nil {
 		return err
 	}
-
 	var user models.User
 	database.DB.Where("email= ?", data["email"]).First(&user)
 	if user.Id == 0 {
