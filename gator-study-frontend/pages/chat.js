@@ -1,15 +1,41 @@
-import React, { useState,useContext } from 'react'
+import React, { useState,useContext, useEffect } from 'react'
 import { Flex,Container,Heading,Button, FormLabel, FormControl,Input, Stack } from "@chakra-ui/react";
 import Layout from '../layouts/Layouts';
 import { MdSend } from "react-icons/md"
+import Pusher from "pusher-js"
 import {Context} from "../context";
 const Chat = (props) => {
-  const [username,setUsername] = useState('');
+  const [sendToId,setSendToId] = useState('');
+  const id = props.id; 
+  const name = props.name;
   const [messages,setMessages] = useState([]);
   const [message,setMessage] = useState('');
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  let allMessages = [];
+  useEffect(()=>{
+    Pusher.logToConsole = true;
 
+    const pusher = new Pusher('8505d5a21a4e9849578d', {
+      cluster: 'us2'
+    });
+
+    const channel = pusher.subscribe('chat');
+    channel.bind('message', function(data) {
+      allMessages.push(data);
+      setMessage(allMessages);
+      alert(JSON.stringify(data));
+    });
+  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await fetch('http://localhost:8000/api/messages',{
+      method: "POST",
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        sendToId,
+        message
+      })
+    });
+    setMessage('');
   }
   return (
     <>
@@ -17,7 +43,7 @@ const Chat = (props) => {
     <Container centerContent >
       <div centerContent>Hi, {props.name}</div>
     <Flex direction='column' borderRadius="lg" bg='teal.100' padding="4" marginTop={10}>
-      <div >User</div>
+      <div ><Input style={{background:'white'}} placeholder='Who do you want to send a message to?' value={sendToId} onChange={e => setSendToId(e.target.value)}></Input></div>
     <div style={{minHeight:"300px",background:'white'}}>
       {messages.map(message => {
         return(
