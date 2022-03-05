@@ -85,6 +85,38 @@ func TestRegisterWhenFailure(t *testing.T) {
 
 	assert.Equal(t, fiber.StatusInternalServerError, response.StatusCode)
 }
+
+func TestLogoutWhenFailure(t *testing.T) {
+	var data = []byte(`{}`)
+
+	app := fiber.New()
+
+	req, _ := http.NewRequest("POST", "/api/Logout", bytes.NewBuffer(data))
+
+	response, err := app.Test(req)
+
+	if err != nil {
+		t.Errorf("Handler Returned a wrong status code")
+	}
+
+	assert.Equal(t, fiber.StatusInternalServerError, response.StatusCode)
+}
+
+func TestLogoutWhenSuccess(t *testing.T) {
+	var data = []byte(`{}`)
+
+	app := fiber.New()
+
+	req, _ := http.NewRequest("POST", "/api/Logout", bytes.NewBuffer(data))
+
+	response, err := app.Test(req)
+
+	if err != nil {
+		t.Errorf("Handler Returned a wrong status code")
+	}
+
+	assert.Equal(t, fiber.StatusOK, response.StatusCode)
+}
 func TestRegisterUser(t *testing.T) {
 	user := models.User{
 		Name:     "test",
