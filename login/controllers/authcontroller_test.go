@@ -128,3 +128,19 @@ func TestRegisterUser(t *testing.T) {
 		t.Log("result is right")
 	}
 }
+
+func TestUser(t *testing.T) {
+	var data = []byte(`{}`)
+
+	app := fiber.New()
+
+	req, _ := http.NewRequest("GET", "/api/User", bytes.NewBuffer(data))
+
+	response, err := app.Test(req)
+
+	if err != nil {
+		t.Errorf("Handler Returned a wrong status code")
+	}
+
+	assert.Equal(t, fiber.StatusOK, response.StatusCode)
+}
