@@ -1,10 +1,10 @@
 # Gator-Study
 ## Contributors 
 
-	 - Abhiti Sachdeva
-	 - Yagya Malik
-	 - Akshat Srivastava
-	 - Naman Bhatia
+	 - Abhiti Sachdeva - Frontend
+	 - Yagya Malik - Frontend
+	 - Akshat Srivastava - Backend
+	 - Naman Bhatia - Backend
 
 ## Description
 This is our term project for CEN 5035, Software Engineering. This project will create a web-application that is a Pomodoro timer at its core with a focus on facilitating group study online. Users can use this app to study on their own or form a group to study with (similar to a server on Discord or Slack).
