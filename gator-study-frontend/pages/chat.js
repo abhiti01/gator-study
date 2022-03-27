@@ -21,8 +21,7 @@ const Chat = (props) => {
     const channel = pusher.subscribe('chat');
     channel.bind('message', function(data) {
       allMessages.push(data);
-      setMessage(allMessages);
-      alert(JSON.stringify(data));
+      setMessages(allMessages);
     });
   });
   const handleSubmit = async (e) => {
@@ -48,7 +47,7 @@ const Chat = (props) => {
       {messages.map(message => {
         return(
           <div>
-            <div>{message.username}</div>
+            <div>{message.sendToId}</div>
             <div>{message.message}</div>
           </div>
         )
