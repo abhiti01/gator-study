@@ -12,4 +12,5 @@ func Setup(app *fiber.App) {
 	app.Get("/api/User", controllers.User)
 	app.Post("/api/Logout", controllers.Logout)
 	app.Post("/api/messages", Chat.ChatBot)
+	app.Post("/api/createGroup", controllers.CreateGroup)
 }
