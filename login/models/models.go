@@ -15,6 +15,6 @@ type Group struct {
 	Capacity    string
 }
 type UserGroup struct {
-	UserId  []uint
-	GroupId uint
+	UserId  string
+	GroupId string
 }
