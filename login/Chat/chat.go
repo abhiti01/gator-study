@@ -19,8 +19,8 @@ func ChatBot(c *fiber.Ctx) error {
 	if err := c.BodyParser(&data); err != nil {
 		return err
 	}
-
-	pusherClient.Trigger("Maths", "message", data)
+	var groupName = data["groupName"]
+	pusherClient.Trigger(groupName, "message", data)
 
 	return c.JSON([]string{})
 }
