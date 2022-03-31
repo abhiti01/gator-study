@@ -14,12 +14,13 @@ import {
   MenuDivider,
   useDisclosure,
   useColorModeValue,
+  Select,
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { useRouter } from 'next/router';
+import { useRouter,  } from 'next/router';
 
-const Links = ['Gator-Study'];
+const Links = ['Gator-Study','Browse groups'];
 
 const NavLink = ({ children }) => (
   <Link
@@ -30,7 +31,7 @@ const NavLink = ({ children }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}>
+    href={'/groups'}>
     {children}
   </Link>
 );
@@ -62,6 +63,7 @@ export default function Layout(props) {
       </MenuList>
     )
   }
+
   return (
     <>
       <Box bg = 'teal.500' px={4}>
@@ -79,10 +81,30 @@ export default function Layout(props) {
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                _hover={{
+                  textDecoration: 'none',
+                  bg: useColorModeValue('gray.200', 'gray.700'),
+                }}
+                href={'/'}>
+                Gator-study
+              </Link>
+              <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                _hover={{
+                  textDecoration: 'none',
+                  bg: useColorModeValue('gray.200', 'gray.700'),
+                }}
+                href={'/groups'}>
+                Browse Groups
+              </Link>
             </HStack>
+            
           </HStack>
           <Flex alignItems={'center'}>
             <Menu>
@@ -107,9 +129,28 @@ export default function Layout(props) {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                _hover={{
+                  textDecoration: 'none',
+                  bg: useColorModeValue('gray.200', 'gray.700'),
+                }}
+                href={'/'}>
+                Gator-study
+              </Link>
+              <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                _hover={{
+                  textDecoration: 'none',
+                  bg: useColorModeValue('gray.200', 'gray.700'),
+                }}
+                href={'/groups'}>
+                Browse Groups
+              </Link>
             </Stack>
           </Box>
         ) : null}
