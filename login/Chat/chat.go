@@ -20,7 +20,7 @@ func ChatBot(c *fiber.Ctx) error {
 		return err
 	}
 
-	pusherClient.Trigger("chat", "message", data)
+	pusherClient.Trigger("Maths", "message", data)
 
 	return c.JSON([]string{})
 }
