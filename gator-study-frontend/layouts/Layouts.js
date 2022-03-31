@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+import { useState, useEffect,useContext } from "react";
+
 import {
   Box,
   Flex,
@@ -37,6 +39,7 @@ const NavLink = ({ children }) => (
 );
 
 export default function Layout(props) {
+  
   let menu;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();

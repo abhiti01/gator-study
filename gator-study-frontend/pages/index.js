@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../layouts/Layouts";
 import Time from "./time";
 import Chat from "./chat";
+import Groups from "./groups";
 export default function Chats() {
   const[auth, setAuth] = useState(false);
   const [id, setId] = useState('');
@@ -15,12 +16,12 @@ export default function Chats() {
             credentials: 'include',
           });
           const content = await response.json();
-          if (content.Name !== undefined && content.Group!== undefined){
-            console.log(content);
+          const g = content.GroupName
+          if (content.Name !== undefined){
             setAuth(true);
             setId(content.Id);
             setName(content.Name);
-            setGroup(content.Group);
+            setGroup(g);
           }
           else{
             setAuth(false);
@@ -28,7 +29,6 @@ export default function Chats() {
         } catch (e){
           console.log("bad login");
         }
-       
       }
     )();
   });

@@ -11,7 +11,6 @@ const Chat = (props) => {
   const group = props.group;
   const [messages,setMessages] = useState([]);
   const [message,setMessage] = useState('');
-  const GroupData = [{ 'Name': 'Math', 'Description': 'Numbers' }, { 'Name': 'Chem', 'Description': 'Benzene rings' }];
   let allMessages = [];
   useEffect(()=>{
     Pusher.logToConsole = true;
@@ -19,7 +18,7 @@ const Chat = (props) => {
     const pusher = new Pusher('8505d5a21a4e9849578d', {
       cluster: 'us2'
     });
-    const channel = pusher.subscribe('chat');
+    const channel = pusher.subscribe(props.group);
     channel.bind('message', function(data) {
       allMessages.push(data);
       setMessages(allMessages);
@@ -31,7 +30,7 @@ const Chat = (props) => {
       method: "POST",
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
-        sendToId,
+        name,
         message
       })
     });
@@ -47,7 +46,7 @@ const Chat = (props) => {
       {messages.map(message => {
         return(
           <div>
-            <div>{props.name}</div>
+            <div>{message.name}</div>
             <div>{message.message}</div>
           </div>
         )
