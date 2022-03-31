@@ -24,7 +24,7 @@ const groups = () => {
     return (
     <Layout>
       <Stack spacing={8}>
-    {GroupData.map((x) => <Feature Name={x.Name} Description= {x.Description}></Feature>)}
+          {GroupData.map((x, index) => <Feature key={index} Name={x.Name} Description= {x.Description}></Feature>)}
     </Stack>
     </Layout>
     

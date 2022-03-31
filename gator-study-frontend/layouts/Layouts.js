@@ -19,7 +19,6 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useRouter,  } from 'next/router';
-import { useState } from 'react'
 
 const Links = ['Gator-Study','Browse groups'];
 
@@ -38,8 +37,6 @@ const NavLink = ({ children }) => (
 );
 
 export default function Layout(props) {
-  const GroupData = ['Math', 'Chem', 'CS', 'Data Science'];
-  const [groupChoice, setGroupChoice] = useState('');
   let menu;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
@@ -108,16 +105,6 @@ export default function Layout(props) {
               </Link>
             </HStack>
             
-            <form>
-              
-              <Select id="joinGroup" placeholder = "Join or add people to a group" onChange={(e) => setGroupChoice(e.target.value)}>
-                {GroupData.map((x) => <option key={x}>{x}</option>)}
-
-              </Select>
-
-            </form>
-
-            <span > {groupChoice} </span>
           </HStack>
           <Flex alignItems={'center'}>
             <Menu>
