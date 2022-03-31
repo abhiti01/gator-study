@@ -51,6 +51,9 @@ func TestAddUserToGroup(t *testing.T) {
 
 func TestGetAllGroups(t *testing.T) {
 
+	var data = []byte(`{
+    ""
+}`)
 	app := fiber.New()
 
 	req, _ := http.NewRequest("GET", "/api/getAllGroups", bytes.NewBuffer(data))
