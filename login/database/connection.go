@@ -19,7 +19,6 @@ func Connect() {
 	err = connection.AutoMigrate(
 		&models.User{},
 		&models.Group{},
-		&models.UserGroup{},
 	)
 
 	if err != nil {
