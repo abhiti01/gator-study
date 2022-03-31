@@ -18,7 +18,6 @@ const groups = () => {
     //if user clicks on join group, set group to group GroupData.name
     const router = useRouter();
     const groupChoice = async(index) =>{
-      index.prev
       setGroup(GroupData[index]['Name']);
       const response = await fetch('http://localhost:8000/joingroup', {
       method: 'POST',
@@ -37,7 +36,7 @@ const groups = () => {
       <Heading fontSize='xl'>{props.Name}</Heading>
         <Text mt={4}>{props.Description}</Text>
           <Button onClick ={()=>groupChoice(props.index)} rightIcon={<ArrowForwardIcon />} colorScheme='teal' variant='solid'>
-            Enter {email}
+            Enter {props.Name }
         </Button>
     </Box>
     )

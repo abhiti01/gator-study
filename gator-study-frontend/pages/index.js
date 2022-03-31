@@ -15,7 +15,7 @@ export default function Chats() {
             credentials: 'include',
           });
           const content = await response.json();
-          if (content.Name !== undefined){
+          if (content.Name !== undefined && content.Group!== undefined){
             console.log(content);
             setAuth(true);
             setId(content.Id);

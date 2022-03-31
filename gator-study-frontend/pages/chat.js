@@ -40,14 +40,14 @@ const Chat = (props) => {
   return (
     <>
     <Container centerContent >
-      <div centerContent>Hi, {props.name} {props.group}</div>
+      <div centerContent>Hi, {props.name}, you are chatting in {props.group}</div>
     <Flex direction='column' borderRadius="lg" bg='teal.100' padding="4" marginTop={10}>
-      <div ><Input style={{background:'white'}} placeholder='Whom do you want to send a message to?' value={sendToId} onChange={e => setSendToId(e.target.value)}></Input></div>
+      {/* <div ><Input style={{background:'white'}} placeholder='Whom do you want to send a message to?' value={sendToId} onChange={e => setSendToId(e.target.value)}></Input></div> */}
     <div style={{minHeight:"300px",background:'white'}}>
       {messages.map(message => {
         return(
           <div>
-            <div>{message.sendToId}</div>
+            <div>{props.name}</div>
             <div>{message.message}</div>
           </div>
         )
