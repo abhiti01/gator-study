@@ -6,6 +6,7 @@ export default function Chats() {
   const[auth, setAuth] = useState(false);
   const [id, setId] = useState('');
   const [name, setName] = useState('');
+  const [group, setGroup] = useState('');
   useEffect(() => {
     (
       async() => {
@@ -19,6 +20,7 @@ export default function Chats() {
             setAuth(true);
             setId(content.Id);
             setName(content.Name);
+            setGroup(content.Group);
           }
           else{
             setAuth(false);
@@ -33,8 +35,7 @@ export default function Chats() {
   return <div className="background">
     <Layout auth = {auth} >
       <Time />
-      {auth && <Chat id = {id} name = {name}/>}
-      {/* <Chat /> */}
+      {auth && <Chat id = {id} name = {name} group = {group}/>}
     </Layout>
      </div>;
 } 

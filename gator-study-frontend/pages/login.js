@@ -6,9 +6,6 @@ import axios from 'axios';
 import Link from 'next/link'
 import { Container,Heading,Button, FormLabel, FormControl,Input } from "@chakra-ui/react";
 import Layout from "../layouts/Layouts";
-// import Layout from "../component/Layout";
-// import { login } from "../requests/userApi";
-// import useUser from "../data/useUser";
 
 const Login = () => {
   const {email, secret, setEmail,setSecret} = useContext(Context);
@@ -17,7 +14,6 @@ const Login = () => {
   const onLoginSubmit = async(e) => {
     e.preventDefault();
     if (email && secret) {
-    //   login({ email, password });
     console.log(email,secret);
     const response = await fetch('http://localhost:8000/api/login', {
       method: 'POST',
