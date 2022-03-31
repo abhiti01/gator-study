@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestCreateGroupWhenSucess(t *testing.T) {
+func TestCreateGroupWhenSuccess(t *testing.T) {
 	var data = []byte(`{
     "Id":"1",
     "Name":"Computer Science",
@@ -30,7 +30,7 @@ func TestCreateGroupWhenSucess(t *testing.T) {
 	assert.Equal(t, fiber.StatusNotFound, response.StatusCode)
 }
 
-func TestGetAllGroups(t *testing.T) {
+func TestAddUserToGroup(t *testing.T) {
 	var data = []byte(`{
     "email":"naman3.bhatia@gmail.com",
     "groupName":"Computer Science",
@@ -38,7 +38,22 @@ func TestGetAllGroups(t *testing.T) {
 
 	app := fiber.New()
 
-	req, _ := http.NewRequest("POST", "/api/getAllGroups", bytes.NewBuffer(data))
+	req, _ := http.NewRequest("POST", "/api/addUserToGroup", bytes.NewBuffer(data))
+
+	response, err := app.Test(req)
+
+	if err != nil {
+		t.Errorf("Handler Returned a wrong status code")
+	}
+
+	assert.Equal(t, fiber.StatusNotFound, response.StatusCode)
+}
+
+func TestGetAllGroups(t *testing.T) {
+
+	app := fiber.New()
+
+	req, _ := http.NewRequest("GET", "/api/getAllGroups", bytes.NewBuffer(data))
 
 	response, err := app.Test(req)
 
