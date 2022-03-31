@@ -6,6 +6,7 @@ export default function Chats() {
   const[auth, setAuth] = useState(false);
   const [id, setId] = useState('');
   const [name, setName] = useState('');
+  const [group, setGroup] = useState('');
   useEffect(() => {
     (
       async() => {
@@ -14,11 +15,12 @@ export default function Chats() {
             credentials: 'include',
           });
           const content = await response.json();
-          if (content.Name !== undefined){
+          if (content.Name !== undefined && content.Group!== undefined){
             console.log(content);
             setAuth(true);
             setId(content.Id);
             setName(content.Name);
+            setGroup(content.Group);
           }
           else{
             setAuth(false);
@@ -33,8 +35,7 @@ export default function Chats() {
   return <div className="background">
     <Layout auth = {auth} >
       <Time />
-      {auth && <Chat id = {id} name = {name}/>}
-      {/* <Chat /> */}
+      {auth && <Chat id = {id} name = {name} group = {group}/>}
     </Layout>
      </div>;
 } 
