@@ -31,7 +31,8 @@ const Chat = (props) => {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
         name,
-        message
+        message,
+        "groupName":group
       })
     });
     setMessage('');
