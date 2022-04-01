@@ -1,5 +1,5 @@
 import React, { useState,useContext, useEffect } from 'react'
-import { Flex,Container,Heading,Button, FormLabel, FormControl,Input, Stack } from "@chakra-ui/react";
+import { Box,Flex,Container,Heading,Button, FormLabel, FormControl,Input, Stack } from "@chakra-ui/react";
 import Layout from '../layouts/Layouts';
 import { MdSend } from "react-icons/md"
 import Pusher from "pusher-js"
@@ -41,14 +41,13 @@ const Chat = (props) => {
     <Container centerContent >
       <div centerContent>Hi, {props.name}, you are chatting in {props.group}</div>
     <Flex direction='column' borderRadius="lg" bg='teal.100' padding="4" marginTop={10}>
-      {/* <div ><Input style={{background:'white'}} placeholder='Whom do you want to send a message to?' value={sendToId} onChange={e => setSendToId(e.target.value)}></Input></div> */}
-    <div style={{minHeight:"300px",background:'white'}}>
+    <div style={{minHeight:"300px",background:'teal.100'}}>
       {messages.map(message => {
         return(
-          <div>
-            <div>{message.name}</div>
+          <Box  mt={5} mb={5} ml={1} mr={1}borderRadius='md' bg='white'>
+            <div style={{textAlign:"left",textDecoration:"underline"}}>{message.name}</div>
             <div>{message.message}</div>
-          </div>
+          </Box>
         )
       })}
     </div>

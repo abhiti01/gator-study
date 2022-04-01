@@ -14,46 +14,6 @@ import {
 import { ArrowForwardIcon} from '@chakra-ui/icons'
 
  const Groups = () => {
-  
-//     const {email, secret, setEmail,setSecret} = useContext(Context);
-//     const GroupData = props;
-//     // const GroupData = [{ "Name": 'Math', 'Description': 'Numbers' }, { 'Name': 'Chem', 'Description': 'Benzene rings' }];
-//     const [group, setGroup] = useState('');
-//     //if user clicks on join group, set group to group GroupData.name
-//     const router = useRouter();
-//     const groupChoice = async(index) =>{
-//       setGroup(GroupData[index]['Name']);
-//       const response = await fetch('http://localhost:8000/joingroup', {
-//       method: 'POST',
-//       headers: {'Content-Type': 'application/json'},
-//       credentials: 'include',
-//       body: JSON.stringify({
-//         email,
-//         group
-//       })
-//     })
-//     router.push('/');
-//     };
-//     function Feature( props ) {
-//     return (
-//     <Box p={5} shadow='md' borderWidth='1px' >
-//       <Heading fontSize='xl'>{props.Name}</Heading>
-//         <Text mt={4}>{props.Description}</Text>
-//           <Button onClick ={()=>groupChoice(props.index)} rightIcon={<ArrowForwardIcon />} colorScheme='teal' variant='solid'>
-//             Enter {props.Name }
-//         </Button>
-//     </Box>
-//     )
-//     }
-//     return (
-//     <Layout>
-//       <div>{email}</div>
-//       <Stack spacing={8}>
-//           {GroupData.map((x, index) => <Feature index ={index} key={index} Name={x.Name} Description= {x.Description}></Feature>)}
-//     </Stack>
-//     </Layout>
-    
-//   )
 const router = useRouter();
   const handleSubmit = async (e) => {
     console.log(e);
@@ -67,7 +27,7 @@ const router = useRouter();
       console.log(content.Id)
       const gname = e;
       const email = content.Email;
-    const crrr =await fetch('http://localhost:8000/api/AddUserToGroup',{
+    const resp =await fetch('http://localhost:8000/api/AddUserToGroup',{
       method: "POST",
       headers: {'Content-Type':'application/json'},
       credentials: 'include',
@@ -76,8 +36,8 @@ const router = useRouter();
         "groupName":gname
       })
     });
-    const luuu = await crrr.json();
-    console.log(luuu);
+    const respJson = await resp.json();
+    console.log(respJson);
     router.push('/');
   }
 
@@ -97,12 +57,20 @@ const [isLoading, setLoading] = useState(false)
 
   return(
     <>
-    {data && data.map(gr => (
-      <div key={gr.Name}>
-          <div>{gr.Name}</div>
-          <Button onClick={() =>handleSubmit(gr.Name)}>Join</Button>
-      </div>
+    <Layout>
+      <Stack spacing ={8}>
+    {data && data.map(gr=> (
+      <Box p={5} key={gr.Id} eshadow='md' borderWidth='1px' >
+        <Heading fontSize='xl'>{gr.Name}</Heading>
+        <Text as='u' float='right' mt={4}>Moderator: {gr.Moderator}</Text>
+           <Text  mt={4}>{gr.Description}</Text>
+           <Text as='u' float='right' mt={4}>Group ID: {gr.Id}</Text>
+          <Button marginTop = {5} rightIcon={<ArrowForwardIcon />} colorScheme='teal' variant='solid'onClick={() =>handleSubmit(gr.Name)}>Enter {gr.Name}</Button>
+      </Box>
+      
     ))}
+    </Stack>
+    </Layout>
     </>
 
 )
