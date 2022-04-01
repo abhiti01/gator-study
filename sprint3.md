@@ -1,8 +1,8 @@
 Points planned to deliver : 15
 
-Points delivered : 15
+Points delivered : 18 (3 from last sprint spill over story)
 
-Sprint velocity : 15
+Sprint velocity : 18
 
 Targets achieved:
 
