@@ -22,23 +22,26 @@ const router = useRouter();
       });
       const content = await response.json();
       if (content.Id === undefined){
-        console.log("Please log in before proceeding");
+        alert("Please log in before proceeding");
       }
-      console.log(content.Id)
-      const gname = e;
-      const email = content.Email;
-    const resp =await fetch('http://localhost:8000/api/AddUserToGroup',{
-      method: "POST",
-      headers: {'Content-Type':'application/json'},
-      credentials: 'include',
-      body: JSON.stringify({
-        "email":email,
-        "groupName":gname
-      })
-    });
-    const respJson = await resp.json();
-    console.log(respJson);
-    router.push('/');
+      else{
+          console.log(content.Id)
+        const gname = e;
+        const email = content.Email;
+      const resp =await fetch('http://localhost:8000/api/AddUserToGroup',{
+        method: "POST",
+        headers: {'Content-Type':'application/json'},
+        credentials: 'include',
+        body: JSON.stringify({
+          "email":email,
+          "groupName":gname
+        })
+      });
+      const respJson = await resp.json();
+      console.log(respJson);
+      router.push('/');
+      }
+
   }
 
 const [data, setData] = useState([])

@@ -36,7 +36,15 @@ const Chat = (props) => {
     });
     setMessage('');
   }
-  return (
+  if (group === ""){
+    return (
+      <Container centerContent >
+      <div>Hi, {props.name}, please join a group to begin chatting!</div>
+      </Container>
+    )
+  }
+  else{
+    return (
     <>
     <Container centerContent >
       <div centerContent>Hi, {props.name}, you are chatting in {props.group}</div>
@@ -65,6 +73,7 @@ const Chat = (props) => {
     </Container>
     </>
   )
+  }
 }
 
 export default Chat
