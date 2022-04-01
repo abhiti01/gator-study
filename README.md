@@ -14,12 +14,12 @@ Students use tools such as Twitch, Discord, and YouTube as a group study platfor
 
  - [x] A user can sign-up to use the application.
  - [x] The student can then use the application as a simple Pomodoro timer.
- - [ ] The student can play and control music from YouTube/Spotify/Apple music via the web-app.
+ - [x] The student can play and control music from YouTube/Spotify/Apple music via the web-app.
  - [ ] The student can pick between different calming effects to go along with the timer (such as Rain effects in the background).
- - [ ] The student can invite other students to join the study session. All the users will see the same Pomodoro timer.
+ - [x] The student can join study sessions. All the users can access Pomodoro timer.
  - [ ] The other students in the session can request the admin of the session to pause/play the Pomodoro timer.
  - [ ] The music picked by the session admin will play for all the students
- - [ ] All the students in the session can chat with each other to exchange notes and ideas.
+ - [x] All the students in the session can chat with each other to exchange notes and ideas.
 
 ## Technologies Involved
 
