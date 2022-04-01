@@ -5,6 +5,8 @@ Points delivered : 18 (3 from last sprint spill over story)
 
 Sprint velocity : 18
 
+Project demo: https://youtu.be/lEasVQEioyU
+
 Targets achieved:
 
 ### Overview:
@@ -28,7 +30,18 @@ Targets achieved:
 3. npm should take care of installing all the dependencies, run `npm run dev` and the console should output the link at which the website is live (localhost:3000 or localhost:8000)
 4. If npm doesn't install required dependencies correctly, try running `npm install next react react-dom`
 
-###Screenshots for frontend 
+#### Steps to run Frontend tests :
+1. Inside gator-study-frontend, run `npm run cypress`
+2. Click on 'Run integration tests'
+3. To use Cypress in headless mode instead, run `npm run cypress:headless`
+
+When using GUI-
+<img width="1279" alt="Screen Shot 2022-04-01 at 3 15 13 PM" src="https://user-images.githubusercontent.com/56045952/161330704-cd22d351-bce6-4ad2-a8b2-9c6cc6b4b135.png">
+
+When using headless mode- 
+<img width="1093" alt="Screen Shot 2022-04-01 at 2 53 52 PM" src="https://user-images.githubusercontent.com/56045952/161330740-13907703-b356-4115-aabf-71c3902fb322.png">
+
+### Screenshots for frontend 
 1. Homepage - 
 <img width="1438" alt="Screenshot 2022-04-01 at 2 27 28 PM" src="https://user-images.githubusercontent.com/56045905/161321223-78b7430b-14fc-4e39-8eb5-af6f6575db19.png">
 2. Group selection page -
