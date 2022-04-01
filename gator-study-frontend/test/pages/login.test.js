@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "../test-utils";
 import Login from "../../pages/login";
 // describe("Login", () => {
-//   it("Renders login page", () => {
+//   it("Renders gator-study-backend page", () => {
 //     render(<Login />);
 //   });
 

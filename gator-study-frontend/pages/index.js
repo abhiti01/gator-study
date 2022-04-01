@@ -27,7 +27,7 @@ export default function Chats() {
             setAuth(false);
           }
         } catch (e){
-          console.log("bad login");
+          console.log("bad gator-study-backend");
         }
       }
     )();

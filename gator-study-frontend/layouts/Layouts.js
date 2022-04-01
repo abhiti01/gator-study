@@ -49,12 +49,12 @@ export default function Layout(props) {
       headers: {'Content-Type': 'application/json'},
       credentials: 'include'
     })
-    await router.push('/login');
+    await router.push('/gator-study-backend');
   }
   if (!props.auth){
     menu = (
       <MenuList>
-        <MenuItem><Link href='/login'>Login</Link></MenuItem>
+        <MenuItem><Link href='/gator-study-backend'>Login</Link></MenuItem>
       <MenuItem><Link href='/register'>Sign Up</Link></MenuItem>
       </MenuList>
       

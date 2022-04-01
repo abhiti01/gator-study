@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "373dcbc6-557c-48b6-964e-3a29083fed4b",
+		"name": "Chat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"john\",\r\n    \"message\" : \"hi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Http://localhost:8000/api/messages",
+					"protocol": "Http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

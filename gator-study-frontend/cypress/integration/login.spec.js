@@ -2,8 +2,8 @@ describe('Login page', () => {
   
   it('Logs in user', () => {
     cy.visit('http://localhost:3000/')
-    cy.get('a[href*="login"]').click({force: true})
-    cy.url().should('include', '/login')
+    cy.get('a[href*="gator-study-backend"]').click({force: true})
+    cy.url().should('include', '/gator-study-backend')
     const username = "dummy@gmail.com"
     const password ="dummy"
     cy.get('[data-cy=email]').type(username)

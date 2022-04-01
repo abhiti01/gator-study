@@ -68,7 +68,7 @@ func Login(c *fiber.Ctx) error {
 	if err != nil {
 		c.Status(fiber.StatusInternalServerError)
 		return c.JSON(fiber.Map{
-			"message": "user could not login",
+			"message": "user could not gator-study-backend",
 		})
 	}
 

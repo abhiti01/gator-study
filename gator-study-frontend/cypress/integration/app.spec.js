@@ -3,9 +3,9 @@ describe('Navigation', () => {
   it('should navigate to the home page', () => {
     cy.visit('http://localhost:3000/')
   })
-  it('should navigate to login page',() => {
-    cy.get('a[href*="login"]').click({force: true})
-    cy.url().should('include', '/login')
+  it('should navigate to gator-study-backend page',() => {
+    cy.get('a[href*="gator-study-backend"]').click({force: true})
+    cy.url().should('include', '/gator-study-backend')
   })
   it('should navigate to signup page',() => {
     cy.visit('http://localhost:3000/')

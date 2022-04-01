@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { Container,Heading,Button, FormLabel, FormControl,Input } from "@chakra-ui/react";
 import Layout from "../layouts/Layouts";
 // import Layout from "../component/Layout";
-// import { login } from "../requests/userApi";
+// import { gator-study-backend } from "../requests/userApi";
 // import useUser from "../data/useUser";
 
 const Register = () => {
@@ -18,7 +18,7 @@ const Register = () => {
   const onRegisterSubmit = async(e) => {
     e.preventDefault();
     if (email && secret) {
-    //   login({ email, password });
+    //   gator-study-backend({ email, password });
     console.log(name,email,secret);
     const response = await fetch('http://localhost:8000/api/register', {
       method: 'POST',
@@ -29,7 +29,7 @@ const Register = () => {
         secret
       })
     })
-    await router.push('/login');
+    await router.push('/gator-study-backend');
     }
   };
 

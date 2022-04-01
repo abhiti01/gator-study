@@ -16,7 +16,7 @@ func TestLoginWhenPassWordInCorrect(t *testing.T) {
 
 	app := fiber.New()
 
-	req, _ := http.NewRequest("POST", "/api/login", bytes.NewBuffer(data))
+	req, _ := http.NewRequest("POST", "/api/gator-study-backend", bytes.NewBuffer(data))
 
 	response, err := app.Test(req)
 
@@ -34,7 +34,7 @@ func TestLoginWhenPassWordCorrect(t *testing.T) {
 
 	app := fiber.New()
 
-	req, _ := http.NewRequest("POST", "/api/login", bytes.NewBuffer(data))
+	req, _ := http.NewRequest("POST", "/api/gator-study-backend", bytes.NewBuffer(data))
 
 	response, err := app.Test(req)
 
