@@ -65,9 +65,9 @@ const [isLoading, setLoading] = useState(false)
     {data && data.map(gr=> (
       <Box p={5} key={gr.Id} eshadow='md' borderWidth='1px' >
         <Heading fontSize='xl'>{gr.Name}</Heading>
-        <Text as='u' float='right' mt={4}>Moderator: {gr.Moderator}</Text>
+        <Text data-cy="modinfo" as='u' float='right' mt={4}>Moderator: {gr.Moderator}</Text>
            <Text  mt={4}>{gr.Description}</Text>
-           <Text as='u' float='right' mt={4}>Group ID: {gr.Id}</Text>
+           <Text data-cy="groupid" as='u' float='right' mt={4}>Group ID: {gr.Id}</Text>
           <Button marginTop = {5} rightIcon={<ArrowForwardIcon />} colorScheme='teal' variant='solid'onClick={() =>handleSubmit(gr.Name)}>Enter {gr.Name}</Button>
       </Box>
       

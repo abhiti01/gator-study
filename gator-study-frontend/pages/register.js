@@ -39,21 +39,24 @@ const Register = () => {
         <Heading > Register </Heading>
         <form onSubmit={onRegisterSubmit}>
         <FormLabel htmlFor="name">Name</FormLabel>
-            <Input
+          <Input
+              data-cy="name"
               type="name"
               id="name"
               aria-describedby="nameHelp"
               onChange={(e) => setName(e.target.value)}
             />
             <FormLabel htmlFor="email">Email address</FormLabel>
-            <Input
+          <Input
+              data-cy="email"
               type="email"
               id="email"
               aria-describedby="emailHelp"
               onChange={(e) => setEmail(e.target.value)}
             />
             <FormLabel htmlFor="password">Password</FormLabel>
-            <Input
+          <Input
+              data-cy="password"
               onChange={(e) => setSecret(e.target.value)}
               type="password"
               id="password"

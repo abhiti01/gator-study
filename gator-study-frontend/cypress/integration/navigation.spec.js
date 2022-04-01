@@ -18,4 +18,10 @@ describe('Navigation', () => {
     cy.get('Button').contains('Pomodoro')
     cy.url().should('include', '/time')
   })
+
+  it('should navigate to groups',() => {
+    cy.visit('http://localhost:3000/groups')
+    cy.get('[data-cy=modinfo]').contains('Moderator')
+    cy.url().should('include', '/groups')
+  })
 })
