@@ -160,26 +160,25 @@ export default function Playlist() {
   if (data.items === "undefined") return <div>loading...</div>
   return (
     <>
-    {
+    {
       <ul>
-    {data.items.map(({ id, snippet = {} }) => {
-      const { title, thumbnails = {}, resourceId = {} } = snippet;
-      const { medium } = thumbnails;
-      return (
-
-        <li key={id}>
-          <a href={`https://www.youtube.com/watch?v=${resourceId.videoId}`}>
-            <p>
-              {medium!==undefined && <img width={medium.width} height={medium.height} src={medium.url} alt="" />}
-              
-            </p>
-            <h3>{ title }</h3>
-          </a>
-        </li>
-      )
-    })}
+        {data.items.map(({ id, snippet = {} }) => {
+        // const {videoID = {}}
+          const { title, thumbnails = {}, resourceId = {} } = snippet;
+          const { medium } = thumbnails;
+          return (
+            <ul value={id} >
+                <p>
+    {/*               {medium!==undefined && <img width={medium.width} height={medium.height} src={medium.url} alt="" />} */}
+                  <iframe width="560" height="315" src={`https://www.youtube.com/embed/${id.videoId}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </p>
+                <h3>{ title }</h3>
+            </ul>
+          )
+        })}
   </ul>
     }
+    
     </>
     
   )

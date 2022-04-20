@@ -20,7 +20,7 @@ export default function Chats() {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [music, setMusic] = useState(false);
-  const { user, loggedOut,mutate } = useUser();
+  const { user, loggedOut,avatar, mutate } = useUser();
   const group = ""
   useEffect(() => {
     console.log(loggedOut)
@@ -40,7 +40,7 @@ export default function Chats() {
     console.log(music);
   };
   return <div className="background">
-    <Layout>
+    <Layout avatar = {avatar}>
       <Time />
       {/* {music && <Container paddingTop={10} centerContent>
         <Playlist group = {group}/>
