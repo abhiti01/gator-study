@@ -19,6 +19,7 @@ func CreateGroup(c *fiber.Ctx) error {
 		Description: data["Description"],
 		Moderator:   data["Moderator"],
 		Capacity:    data["Capacity"],
+		ImagePath:   data["ImagePath"],
 	}
 
 	result := database.DB.Create(&group)

@@ -1,11 +1,12 @@
 package models
 
 type User struct {
-	Id        uint
+	Id        int
 	Name      string
 	Email     string
 	Password  []byte `json:"-"`
 	GroupName string
+	UserNotes string
 }
 
 type Group struct {
