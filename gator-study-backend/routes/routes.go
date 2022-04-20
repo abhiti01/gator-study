@@ -15,4 +15,5 @@ func Setup(app *fiber.App) {
 	app.Post("/api/createGroup", controllers.CreateGroup)
 	app.Post("/api/AddUserToGroup", controllers.AddUserToGroup)
 	app.Get("/api/getAllGroups", controllers.GetAllGroups)
+	app.Post("/api/addNotes", controllers.AddNotes)
 }
