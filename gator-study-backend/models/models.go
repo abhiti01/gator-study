@@ -14,4 +14,5 @@ type Group struct {
 	Description string
 	Moderator   string
 	Capacity    string
+	ImagePath   string
 }
