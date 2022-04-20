@@ -21,6 +21,7 @@ const Chat = (props) => {
     const pusher = new Pusher('8505d5a21a4e9849578d', {
       cluster: 'us2'
     });
+    console.log("in channel" + group);
     const channel = pusher.subscribe(group);
     channel.bind('message', function(data) {
       allMessages.push(data);
@@ -51,7 +52,7 @@ const Chat = (props) => {
     return (
     <>
     <Container centerContent >
-      <div centerContent>Hi, {props.name}, you are chatting in {props.group}</div>
+          <div centerContent>Hi, {props.name}{(group !== "default") ? <p>You're in channel {group}</p> : <p>Say hi to people, or join a group to find your buddies!</p>}</div>
     <Flex direction='column' borderRadius="lg" bg='teal.100' padding="4" marginTop={10}>
     <div style={{minHeight:"300px",background:'teal.100'}}>
       {messages.map(message => {
