@@ -19,35 +19,51 @@ import {
   Text,
   Textarea
 } from '@chakra-ui/react';
-const Notes = () => {
-    let [value, setValue] = React.useState('')
-
-  let handleInputChange = (e) => {
+import { mutate } from 'swr';
+import { Router } from 'next/router';
+const Notes = (props) => {
+    let [value, setValue] = React.useState(props.notes);
+    console.log(value)
+    let postNotes = async(e) =>{
+     e.preventDefault();
+    const email = props.email;
+    const response = await fetch('http://localhost:8000/api/addNotes', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "email":email,
+        "notes":value
+      })
+    })
+    const res = await response.json()
+    console.log(res);
+    // mutate("http://localhost:8000/api/User");
+    // setValue(value);
+  }
+  let handleInputChange = async(e) => {
     let inputValue = e.target.value
     setValue(inputValue)
-
   }
   let handleClear = () => {
-
       setValue("")
       console.log(value)
   }
   return (
     <>
-
       <Text mb='8px'>Notes</Text>
       <Textarea
         value={value}
         onChange={handleInputChange}
+        defaultValue={value}
         placeholder='Start typing your notes here.....'
         size='sm'
-      />    
-      <Button type="submit" >
+      />
+      <Button onClick={postNotes}>
             Save for later
     </Button>
     <Button onClick={handleClear}> Clear notes </Button>
     </>
-  )
+  );
 }
 
 export default Notes

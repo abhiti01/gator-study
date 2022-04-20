@@ -13,7 +13,7 @@ import Layout from "../layouts/Layouts";
 const Register = () => {
   const {name,email, secret, setName,setEmail,setSecret} = useContext(Context);
   const router = useRouter();
-
+  
 
   const onRegisterSubmit = async(e) => {
     e.preventDefault();
