@@ -6,16 +6,11 @@ import useUser from "../data/use-user";
 import Playlist from "./playlist";
 import { Grid, GridItem, SimpleGrid, Box } from '@chakra-ui/react'
 import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Container,
   Link,
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
 } from '@chakra-ui/react'
 import Chat from "./chat";
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
@@ -37,12 +32,6 @@ export default function Dashboard() {
   if (!user) Router.replace('/login');
   return (
     
-//     <Grid templateColumns='repeat(4, 1fr)' gap={6}>
-//   <GridItem w='100%' h='100%' bg='blue.500' />
-//   <GridItem w='100%' h='100%' bg='blue.500' />
-//   <GridItem w='100%' h='100%' bg='blue.500' />
-//   <GridItem w='100%' h='100%' bg='blue.500' />
-// </Grid>
 <>
     <Layout state="auth" />
 <SimpleGrid columns={2} spacing={10}>
@@ -60,7 +49,7 @@ export default function Dashboard() {
   <Box bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
         rounded={'lg'}
-        p={6} height='100%' width='100%'><Chat id={user.Id} name={user.Name} group={user.groupName} /></Box>
+        p={6} height='100%' width='100%'><Chat id={user.Id} name={user.Name} group={user.GroupName} /></Box>
   <Box bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
         rounded={'lg'}

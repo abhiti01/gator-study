@@ -2,7 +2,9 @@ import React from 'react'
 import Layout from '../layouts/Layouts'
 import {Context} from "../context";
 import { useState, useEffect,useContext } from "react";
-import {Router, useRouter} from 'next/router';
+import { Router, useRouter } from 'next/router';
+import { useSWRConfig } from 'swr';
+import useUser from "../data/use-user";
 // import { loadPosts } from '../components/fetch-group'
 import {
   Box,
@@ -13,36 +15,24 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 
- const Groups = () => {
+const Groups = () => {
+const { user, loggedOut,avatar, mutate } = useUser();
 const router = useRouter();
-  const handleSubmit = async (e) => {
-    console.log(e);
-      const response = await fetch('http://localhost:8000/api/User',{
-        credentials: 'include',
-      });
-      const content = await response.json();
-      if (content.Id === undefined){
-        alert("Please log in before proceeding");
-      }
-      else{
-          console.log(content.Id)
-        const gname = e;
-        const email = content.Email;
+   const handleSubmit = async (e) => {
       const resp =await fetch('http://localhost:8000/api/AddUserToGroup',{
         method: "POST",
         headers: {'Content-Type':'application/json'},
         credentials: 'include',
         body: JSON.stringify({
-          "email":email,
-          "groupName":gname
+          "email":user.Email,
+          "groupName":e
         })
       });
       const respJson = await resp.json();
-      console.log(respJson);
+     console.log(respJson);
+     mutate('http://localhost:8000/api/User')
       router.push('/');
       }
-
-  }
 
 const [data, setData] = useState([])
 const [isLoading, setLoading] = useState(false)
