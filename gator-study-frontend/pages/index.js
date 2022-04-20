@@ -22,9 +22,9 @@ export default function Chats() {
   const [music, setMusic] = useState(false);
   const { user, loggedOut,mutate } = useUser();
   const group = ""
-  // console.log(user.GroupName);
   useEffect(() => {
-    if (user && !loggedOut) {
+    console.log(loggedOut)
+    if (user && !loggedOut && loggedOut!==undefined) {
       Router.replace("/dashboard");
     }
   }, [user, loggedOut]);
