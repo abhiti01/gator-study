@@ -45,12 +45,12 @@ export default function Layout(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const logout = async()=>{
-    mutate('http://localhost:8000/api/User')
     await fetch('http://localhost:8000/api/logout',{
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       credentials: 'include'
     })
+    mutate('http://localhost:8000/api/User')
     await router.push('/');
     router.replace('/');
   }

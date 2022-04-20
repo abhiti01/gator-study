@@ -6,16 +6,17 @@ import axios from 'axios';
 import Link from 'next/link'
 import { Container,Heading,Button, FormLabel, FormControl,Input } from "@chakra-ui/react";
 import Layout from "../layouts/Layouts";
-
+import { useSWRConfig } from 'swr';
 const Login = () => {
   const {email, secret, setEmail,setSecret} = useContext(Context);
   const router = useRouter();
-
+  const { mutate } = useSWRConfig();
   const onLoginSubmit = async(e) => {
     e.preventDefault();
     if (email && secret) {
     console.log(email,secret);
     const response = await fetch('http://localhost:8000/api/login', {
+
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       credentials: 'include',
@@ -25,7 +26,9 @@ const Login = () => {
       })
     })
     const data = await response.json()
+    mutate('http://localhost:8000/api/User')
     router.push('/');
+    router.replace('/');
     }
   };
 

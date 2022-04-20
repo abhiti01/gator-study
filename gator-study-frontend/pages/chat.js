@@ -8,7 +8,10 @@ const Chat = (props) => {
   const [sendToId,setSendToId] = useState('');
   const id = props.id; 
   const name = props.name;
-  const group = props.group;
+  var group = props.group;
+  if (group === undefined || group === ""){
+    group = "default"
+  }
   const [messages,setMessages] = useState([]);
   const [message,setMessage] = useState('');
   let allMessages = [];
@@ -18,7 +21,7 @@ const Chat = (props) => {
     const pusher = new Pusher('8505d5a21a4e9849578d', {
       cluster: 'us2'
     });
-    const channel = pusher.subscribe(props.group);
+    const channel = pusher.subscribe(group);
     channel.bind('message', function(data) {
       allMessages.push(data);
       setMessages(allMessages);
