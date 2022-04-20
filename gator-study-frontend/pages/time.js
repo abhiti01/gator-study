@@ -7,7 +7,7 @@ import {Timer} from "../components/Timer";
 
 
 export default function Time() {
-  const [pomodoro, setPomodoro] = useState(1);
+  const [pomodoro, setPomodoro] = useState(25);
   const [shortBreak, setShortBreak] = useState(5);
   const [longBreak, setLongBreak] = useState(10);
   const [seconds, setSecond] = useState(0);

@@ -21,6 +21,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useRouter,  } from 'next/router';
+import { useSWRConfig } from 'swr';
 
 const Links = ['Gator-Study','Browse groups'];
 
@@ -39,31 +40,34 @@ const NavLink = ({ children }) => (
 );
 
 export default function Layout(props) {
-  
+  const { mutate } = useSWRConfig();
   let menu;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const logout = async()=>{
+    mutate('http://localhost:8000/api/User')
     await fetch('http://localhost:8000/api/logout',{
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       credentials: 'include'
     })
-    await router.push('/login');
+    await router.push('/');
+    router.replace('/');
   }
-  if (!props.auth){
+  if (props.state == "auth"){
+    
+    menu = (
+      <MenuList>
+        <MenuItem><Button data-cy="logoutbtn"onClick={logout}> Logout </Button></MenuItem>
+      </MenuList>
+    )
+  } else {
     menu = (
       <MenuList>
         <MenuItem><Link href='/login'>Login</Link></MenuItem>
       <MenuItem><Link href='/register'>Sign Up</Link></MenuItem>
       </MenuList>
       
-    )
-  } else {
-    menu = (
-      <MenuList>
-        <MenuItem><Button data-cy="logoutbtn"onClick={logout}> Logout </Button></MenuItem>
-      </MenuList>
     )
   }
 

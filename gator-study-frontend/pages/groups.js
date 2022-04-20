@@ -11,7 +11,7 @@ import {
   Button,
   Stack,
 } from '@chakra-ui/react';
-import { ArrowForwardIcon} from '@chakra-ui/icons'
+import { ArrowForwardIcon } from '@chakra-ui/icons'
 
  const Groups = () => {
 const router = useRouter();
