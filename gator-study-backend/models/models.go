@@ -7,6 +7,7 @@ type User struct {
 	Password  []byte `json:"-"`
 	GroupName string
 	UserNotes string
+	Avatar	  string
 }
 
 type Group struct {
