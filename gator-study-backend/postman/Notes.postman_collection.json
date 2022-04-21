@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "0d293627-47f5-4e4b-8ea9-b5ea0f9b9299",
+		"name": "Notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addNotes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"naman5.bhatia@gmail.com\",\n    \"notes\": \"Doubts: Homework 1, question 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/addNotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"addNotes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
