@@ -1,10 +1,11 @@
 import React, { useState,useContext, useEffect } from 'react'
-import { Box,Flex,Container,Heading,Button, FormLabel, FormControl,Input, Stack } from "@chakra-ui/react";
+import { Box,Flex,Container,Heading,Button, FormLabel, FormControl,Input, Stack, VStack,Text } from "@chakra-ui/react";
 import Layout from '../layouts/Layouts';
 import { MdSend } from "react-icons/md"
 import Pusher from "pusher-js"
-import {Context} from "../context";
+import { useSWRConfig } from 'swr';
 const Chat = (props) => {
+  const { mutate } = useSWRConfig();
   const [sendToId,setSendToId] = useState('');
   const id = props.id; 
   const name = props.name;
@@ -26,6 +27,7 @@ const Chat = (props) => {
     channel.bind('message', function(data) {
       allMessages.push(data);
       setMessages(allMessages);
+      mutate('http://localhost:8000/api/User')
     });
   });
   const handleSubmit = async (e) => {
@@ -52,12 +54,12 @@ const Chat = (props) => {
     return (
     <>
     <Container centerContent >
-          <div centerContent>Hi, {props.name}{(group !== "default") ? <p>You're in channel {group}</p> : <p>Say hi to people, or join a group to find your buddies!</p>}</div>
-    <Flex direction='column' borderRadius="lg" bg='teal.100' padding="4" marginTop={10}>
+          <VStack><Text fontWeight={'semibold'} fontSize='2xl' fontFamily={'serif'}>Hi, {props.name}</Text>{(group !== "default") ? <p fontWeight={'semibold'} fontSize='2xl' fontFamily={'serif'}>You're in channel {group}</p> : <p fontWeight={'semibold'} fontSize='2xl' fontFamily={'serif'}>Say hi to people, or join a group to find your buddies!</p>}</VStack>
+    <Flex direction='column' width='100%'borderRadius="lg" bg='teal.100' padding="4" marginTop={10}>
     <div style={{minHeight:"300px",background:'teal.100'}}>
       {messages.map(message => {
         return(
-          <Box  mt={5} mb={5} ml={1} mr={1}borderRadius='md' bg='white'>
+          <Box mt={5} mb={5} ml={1} mr={1} borderRadius='md' bg='white'>
             <div style={{textAlign:"left",textDecoration:"underline"}}>{message.name}</div>
             <div>{message.message}</div>
           </Box>

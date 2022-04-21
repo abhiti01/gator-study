@@ -15,6 +15,7 @@ import {
   MenuItem,
   MenuDivider,
   useDisclosure,
+  Text,
   useColorModeValue,
   Select,
   Stack,
@@ -40,6 +41,7 @@ const NavLink = ({ children }) => (
 );
 
 export default function Layout(props) {
+
   const { mutate } = useSWRConfig();
   let menu;
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -73,6 +75,7 @@ export default function Layout(props) {
 
   return (
     <>
+      <link rel="icon" href="/favicon.ico" />
       <Box bg = 'teal.500' px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
@@ -83,7 +86,7 @@ export default function Layout(props) {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
+            <Text fontSize={30}>🐊</Text >
             <HStack
               as={'nav'}
               spacing={4}
@@ -96,8 +99,10 @@ export default function Layout(props) {
                   textDecoration: 'none',
                   bg: useColorModeValue('gray.200', 'gray.700'),
                 }}
-                href={'/'}>
-                Gator-study
+                href={'/'}
+              fontSize = {20}
+              >
+                Study 🙇🏻‍♂️
               </Link>
               <Link
                 px={2}
@@ -106,9 +111,12 @@ export default function Layout(props) {
                 _hover={{
                   textDecoration: 'none',
                   bg: useColorModeValue('gray.200', 'gray.700'),
-                }}
-                href={'/groups'}>
-                Browse Groups
+                  
+                }
+                }
+                href={'/groups'}
+              fontSize = {20}>
+                Groups 👩🏻‍🏫👩‍🎓
               </Link>
             </HStack>
             
@@ -122,7 +130,7 @@ export default function Layout(props) {
                 cursor={'pointer'}
                 minW={0}>
                 <Avatar
-                  size={'sm'}
+                  size={'md'}
                   src={
                     "https://avatars.dicebear.com/api/big-smile/defaul.svg"
                   }

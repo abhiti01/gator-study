@@ -11,14 +11,14 @@ export const Timer = ({stage,switchState,getTime,seconds, ticking, startTimer, i
   return <Container maxW='container.md' centerContent>
       
       <Stack direction='row' spacing={4}>
-    <Button rightIcon={<TimeIcon />} colorScheme='teal' variant='solid' onClick={() => switchState(0)}>
-        Pomodoro
+    <Button colorScheme='teal' variant='solid' onClick={() => switchState(0)}>
+        Pomodoro ⏰
     </Button>
-    <Button rightIcon={<MdOutlineFreeBreakfast />} colorScheme='teal' variant='solid' onClick={() => switchState(1)}>
-        Short Break
+    <Button  colorScheme='teal' variant='solid' onClick={() => switchState(1)}>
+        Short Break ⏳
     </Button>
-    <Button rightIcon={< MdFastfood />} colorScheme='teal' variant='solid' onClick={() => switchState(2)}>
-        Long break
+    <Button  colorScheme='teal' variant='solid' onClick={() => switchState(2)}>
+        Long break ⌛️
     </Button>
     </Stack>
       <Box margin={2}>
@@ -28,7 +28,7 @@ export const Timer = ({stage,switchState,getTime,seconds, ticking, startTimer, i
       <div>
           <Stack direction='row' spacing={4}>
             <Button colorScheme='teal' variant='solid' onClick={startTimer}>
-                {ticking? "Stop":"Start"}
+                {ticking? "Stop 🚨":"Start 👏🏻"}
                 
             </Button>
             {/* {isTimeUp && (
@@ -36,7 +36,7 @@ export const Timer = ({stage,switchState,getTime,seconds, ticking, startTimer, i
                     onClick = {muteAlarm} />
                 )} */}
             {ticking && (<Button colorScheme='teal' variant='solid' onClick={reset}>
-                Reset
+                Reset ♻️   
             </Button>)}
         </Stack>
       </div>
