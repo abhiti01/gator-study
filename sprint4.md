@@ -1,11 +1,12 @@
 ### Progress
-Points planned to deliver : 22
+Points planned to deliver : 25
 
-Points delivered : 22
+Points delivered : 25
 
-Sprint velocity : 22
+Sprint velocity : 25
 
-Project demo: Embedded video
+Project demo: On the home page and the main Readme.md file 
+https://github.com/abhiti01/gator-study
 
 Targets achieved:
 
@@ -47,11 +48,11 @@ When using headless mode-
 4. import the postman collections from the postman folder.
 5. Hit the endpoints via postman and check them out.
 
-Below are the screenshots for the flow of groups feature- 
+Below are the screenshots for the addition of notes feature- 
 
 1. User saves a new note
 <img width="1001" alt="Screen Shot 2022-04-20 at 8 56 30 PM" src="https://user-images.githubusercontent.com/19620158/164350527-677385c6-6131-4b8f-8bf1-e140a983bd94.png">
 
-2. When user logs in or goes to dashboard they can see their old notes saved wuth their user profile
+2. When user logs in or goes to dashboard they can see their old notes saved corresponding to their user profile
 <img width="1026" alt="Screen Shot 2022-04-20 at 8 58 17 PM" src="https://user-images.githubusercontent.com/19620158/164350632-6dbabfd4-31b6-492b-8193-bc431353c229.png">
 
