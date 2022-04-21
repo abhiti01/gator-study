@@ -44,6 +44,43 @@ func TestLoginWhenPassWordCorrect(t *testing.T) {
 
 	assert.Equal(t, fiber.StatusOK, response.StatusCode)
 }
+func TestLoginWhenUserDoesNotExist(t testing.T) {
+    var data = []byte({
+        "email": "naman.bhatia@gmail.com",
+        "password": "1234"
+    })
+
+    app := fiber.New()
+
+    req, _ := http.NewRequest("POST", "/api/login", bytes.NewBuffer(data))
+
+    response, err := app.Test(req)
+
+    if err != nil {
+        t.Errorf("Handler Returned a wrong status code")
+    }
+
+    assert.Equal(t, fiber.StatusNotFound, response.StatusCode)
+}
+
+func TestLoginWhenTokenError(ttesting.T) {
+    var data = []byte({
+        "email": "naman.bhatia@gmail.com",
+        "password": "1234"
+    })
+
+    app := fiber.New()
+
+    req, _ := http.NewRequest("POST", "/api/login", bytes.NewBuffer(data))
+
+    response, err := app.Test(req)
+
+    if err != nil {
+        t.Errorf("Handler Returned a wrong status code")
+    }
+
+    assert.Equal(t, fiber.StatusInternalServerError, response.StatusCode)
+}
 
 func TestRegisterWhenSuccess(t *testing.T) {
 	var data = []byte(`{
