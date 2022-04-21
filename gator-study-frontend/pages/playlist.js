@@ -1,14 +1,34 @@
 import React, { useEffect, useState } from "react";
 import useSWR from 'swr'
+import useUser from "../data/use-user";
 const fetcher = async url => await fetch(url).then(r => r.json())
-
+import { Grid, GridItem, SimpleGrid, Box } from '@chakra-ui/react'
+import {
+  Container,
+  Link,
+  Stack,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react'
 export default function Playlist() {
-  const key = "AIzaSyCpdrtQ_A8sx5Dvt0JSiLYbTRV01l7GsAU";
-  const videoID = "EvsXkwgMFGE";
-  const YOUTUBE_PLAYLIST_ITEMS_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoID}&maxResults=3&key=${key}&type=video`;
-  // const { data, error, mutate } = useSWR(YOUTUBE_PLAYLIST_ITEMS_API, fetcher,{
-  //   revalidateIfStale:false
-  // })
+
+  const musicMap = [{ "Chemistry": "1fv5TGKD6Pg" }, { "AOA": "M5QY2_8704o" }]
+  const { user, loggedOut, avatar } = useUser();
+  var videoID = musicMap[user.GroupName]
+  if (videoID == undefined) {
+    videoID = "5qap5aO4i9A";
+  }
+  // if (user.GroupName === "") {
+  //  videoID = "1fv5TGKD6Pg"
+  // }
+
+
+  
+  
+  const key = "AIzaSyA72_Cy6N7JlivsH9jynx9-zxks8yV10ck";
+//   const videoID = "5qap5aO4i9A";
+  const YOUTUBE_PLAYLIST_ITEMS_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoID}&maxResults=4&key=${key}&type=video`;
+//    const { data, error, mutate } = useSWR(YOUTUBE_PLAYLIST_ITEMS_API, fetcher)
   const data = {
   "kind": "youtube#searchListResponse",
   "etag": "-v3hINXrKohhG7o57XhP4tbKxIo",
@@ -20,6 +40,50 @@ export default function Playlist() {
   },
   "items": [
     {
+      "kind": "youtube#searchResult",
+      "etag": "z20i1SrsKFNqMFddVCESwdqYNzg",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "WPni755-Krg"
+      },
+      "snippet": {
+        "publishedAt": "2014-06-26T06:07:49Z",
+        "channelId": "UCwobzUc3z-0PrFpoRxNszXQ",
+        "title": "Study Music Alpha Waves: Relaxing Studying Music, Brain Power, Focus Concentration Music, ☯161",
+        "description": "Study Music Alpha Waves: Relaxing Studying Music, Brain Power, Focus Concentration Music, ☯161 – YellowBrickCinema’s Study Music & Concentration Music is ideal background music to help you to study, concentrate, focus and work more effectively. This Study and Focus Music is ideal instrumental music to help you study, focus and relax before that big test or exam. Our Studying Music for concentration uses alpha waves and binaural beats to boost concentration and brain power, and is the ideal relaxing music for stress relief. Our soothing music for studying can help you study for exams and focus at work. We also have Classical Music for studying and concentration which can be used as background music, music for relaxation and meditation music.\n\nYellowBrickCinema composes Sleep Music, Study Music and Focus Music, Relaxing Music, Meditation Music (including Tibetan Music and Shamanic Music), Healing Music, Reiki Music, Zen Music, Spa Music and Massage Music, Instrumental Music (including Piano Music, Guitar Music and Flute Music) and Yoga Music. We also produce music videos with Classical Music from composers such as Mozart, Beethoven and Bach.\n\nOur music is popular for the following:\n\n► Sleep Music:\n\nYellowBrickCinema’s Sleep Music is the perfect relaxing music to help you go to relax, go to sleep, and enjoy deep sleep. Our music for sleeping is the best music for stress relief, to reduce insomnia, and encourage dreaming. Our calm music for sleeping uses delta waves and soft instrumental music to help you achieve deep relaxation, and fall asleep. Our relaxing sleep music can be used as background music, meditation music, relaxation music, peaceful music and sleep music. Let the soothing and calming sounds help you enjoy relaxing deep sleep.\n\nOur instrumental music is specially designed to encourage and enhance relaxation, meditation, brain function and concentration, spa and massage therapy, and healing music therapy. In addition, we use binaural beats (Delta Waves, Alpha Waves and Theta Waves) to naturally encourage a state of relaxation which is perfect for concentration, meditation or deep sleep. Our long music playlists are perfect for your daily meditation and relaxation. Our music videos use light, beautiful, calming sounds (some with nature sounds) that leave you feeling refreshed. \n\n►Meditation Music:\n\nOur relaxing Meditation Music is perfect for Deepak Chopra meditations, Buddhist meditation, Zen meditation, Mindfulness meditation and Eckhart Tolle meditation. This music is influenced by Japanese meditation music, Indian meditation music, Tibetan music and Shamanic music. Some benefits include cleansing the Chakra, opening the Third Eye and increasing Transcendental meditation skills. The work of Byron Katie, Sedona Method, Silva Method and the Secret highlights the fact that healing can occur through using the mind and being in the “now”. Healing Meditation can be practised using this music for best results.\n\n► Instrumental Music:\n\nYellowBrickCinema’s Instrumental Music includes guitar music, piano music and flute music. Our instrumental music can be used for relaxation, study, meditation and stress relief. \n\n► Classical Music:\n\nYellow Brick Cinema’s Classical Music is ideal for studying, reading, sleeping (for adults and babies) and general relaxation. We’ve compiled only the best quality music from some of the world’s most renowned composers such as Mozart, Beethoven, Vivaldi, Bach, Debussy, Brahms, Handel, Chopin, Schubert, Haydn, Dvorak, Schumann, Tchaikovsky and many more. Enjoy Yellow Brick Cinema’s Classical Music whilst relaxing, studying, working, reading, or falling asleep.\n\n► Spa and Massage Music:\n\nOur light spa music is useful after a long day of work to unwind and relax. The spa music, nature sounds, rain sounds, and easy listening instruments used in these tracks encourage ultimate relaxation. YellowBrickCinema’s music is great for massage therapy, and our music will help you relax your mind and body.\n\n►Reiki & Zen Music:\n\nOur Reiki Music and Zen Music is ideal for Reiki healing sessions, and encouraging a state of Zen. Let the calming, subtle sounds take you to a higher state of consciousness, and allow you to give and receive powerful Reiki vibrations.\n\n►Yoga Music:\n\nOur calming music is useful for yoga for beginners, yoga exercises, yoga chants influenced by Indian songs, African music, and is soothing music which can enable you to go into a yoga trance. If you are familiar with the work of Yogscast, Hare Krishna, Michael Franti, and Keshna be sure to use this. \n\n#studymusic\n#study\n#studyingmusic\n#concentrationmusic\n#instrumentalmusic",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WPni755-Krg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WPni755-Krg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WPni755-Krg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/WPni755-Krg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/WPni755-Krg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Yellow Brick Cinema - Relaxing Music",
+        "liveBroadcastContent": "none",
+        "publishTime": "2014-06-26T06:07:49Z"
+      }
+    },
+{
       "kind": "youtube#searchResult",
       "etag": "z20i1SrsKFNqMFddVCESwdqYNzg",
       "id": {
@@ -152,33 +216,68 @@ export default function Playlist() {
       }
     }
   ]
-  }
-  const error = ""
+  }
+  const error = "";
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
   console.log(data)
   if (data.items === "undefined") return <div>loading...</div>
   return (
     <>
-    {
+{/*     {
       <ul>
-        {data.items.map(({ id, snippet = {} }) => {
-        // const {videoID = {}}
-          const { title, thumbnails = {}, resourceId = {} } = snippet;
-          const { medium } = thumbnails;
-          return (
-            <ul value={id} >
-                <p>
-    {/*               {medium!==undefined && <img width={medium.width} height={medium.height} src={medium.url} alt="" />} */}
-                  <iframe width="560" height="315" src={`https://www.youtube.com/embed/${id.videoId}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </p>
-                <h3>{ title }</h3>
-            </ul>
-          )
-        })}
+    {data.items.map(({ id, snippet = {} }) => {
+      const { title, thumbnails = {}, resourceId = {} } = snippet;
+      const { medium } = thumbnails;
+      return (
+
+        <li key={id}>
+          <a href={`https://www.youtube.com/watch?v=${resourceId.videoId}`}>
+            <p>
+              {medium!==undefined && <img width={medium.width} height={medium.height} src={medium.url} alt="" />}
+              
+            </p>
+            <h3>{ title }</h3>
+          </a>
+        </li>
+      )
+    })}
   </ul>
+      } */}
+      <Text fontWeight={'semibold'} fontSize='2xl' fontFamily={'serif'}>Suggested beats ...</Text>
+      {
+//         <SimpleGrid columns={2} spacing={10}>
+//   <Box bg='tomato' height='80px'></Box>
+//   <Box bg='tomato' height='80px'></Box>
+//   <Box bg='tomato' height='80px'></Box>
+//   <Box bg='tomato' height='80px'></Box>
+//   <Box bg='tomato' height='80px'></Box>
+// </SimpleGrid>
+        
+      <SimpleGrid columns={2} spacing={10}>
+          {data.items.map(({ id, snippet = {} }) => {
+            console.log("video data: ")
+            console.log(data)
+      const { title, thumbnails = {}, resourceId = {} } = snippet;
+      const { medium } = thumbnails;
+      return (
+        <Box key={id} bg={useColorModeValue('white', 'gray.900')}
+        boxShadow={'2xl'}
+        rounded={'lg'}
+        p={6} height='100%' width='95%'>
+          <a href={`https://www.youtube.com/watch?v=${resourceId.videoId}`}>
+            <p>
+{/*               {medium!==undefined && <img width={medium.width} height={medium.height} src={medium.url} alt="" />} */}
+              <iframe width="250" height="141" src={`https://www.youtube.com/embed/${id.videoId}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </p>
+            <h3>{ title }</h3>
+          </a>
+        </Box>
+          
+      )
+    })}
+  </SimpleGrid>
     }
-    
     </>
     
   )

@@ -48,7 +48,7 @@ function ModalSetting({
             })}
         </Stack>
         <Button marginTop={2} colorScheme='teal' variant='solid' onClick={updateTimeDefaultValue}>
-            Save
+            Save ✔️
         </Button>
     {/* </div> */}
     </Container>

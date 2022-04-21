@@ -50,18 +50,21 @@ const Notes = (props) => {
   }
   return (
     <>
-      <Text mb='8px'>Notes</Text>
+      <Text mb='8px' fontWeight={'semibold'} fontSize='2xl' fontFamily={'serif'}>Notes</Text>
       <Textarea
         value={value}
         onChange={handleInputChange}
         defaultValue={value}
         placeholder='Start typing your notes here.....'
         size='sm'
-      />
-      <Button onClick={postNotes}>
-            Save for later
-    </Button>
-    <Button onClick={handleClear}> Clear notes </Button>
+          />
+          <HStack marginTop={2}>
+            <Button  colorScheme='teal' variant='solid' onClick={postNotes}>
+                        Save for later
+                </Button>
+                <Button  colorScheme='teal' variant='solid' onClick={handleClear}> Clear notes </Button>
+          </HStack>
+      
     </>
   );
 }

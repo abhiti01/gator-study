@@ -4,6 +4,7 @@ import Layout from "../layouts/Layouts";
 import Time from "./time";
 import useUser from "../data/use-user";
 import Playlist from "./playlist";
+import { AiOutlineHeart } from "react-icons/ai"
 import { Grid, GridItem, SimpleGrid, Box } from '@chakra-ui/react'
 import {
   Container,
@@ -49,7 +50,7 @@ export default function Dashboard() {
   <Box bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
         rounded={'lg'}
-        p={6} height='100%' width='100%'><Chat id={user.Id} name={user.Name} group={user.GroupName} /></Box>
+          p={6} height='100%' width='100%'><Chat id={user.Id} name={user.Name} group={user.GroupName}/></Box>
   <Box bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
         rounded={'lg'}
@@ -86,7 +87,8 @@ export default function Dashboard() {
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <Text>© 2022 Chakra Templates. All rights reserved</Text>
+            {/* < Text textAlign={'left'} fontSize="xs" >Yagya Malik, Abhiti Sachdeva, Akshat Shrivastava, Naman Bhatia </ Text > */}
+            < Text textAlign={'center'} fontSize="xs" >Built with {'\u2764' } at UF by Yagya Malik, Abhiti Sachdeva, Akshat Shrivastava & Naman Bhatia </ Text >
           <Stack direction={'row'} spacing={6}>
               <FaTwitter />
               <FaYoutube />
