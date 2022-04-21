@@ -18,7 +18,8 @@ Targets achieved:
 4. Conducted standup meetings everyday to discuss the progress.
 5. Added Unit test for new developments.
 #### Frontend -
-1. Added suggested playlists with Youtube's API. Users can play, pause or switch between playlists.
+1. Fetched, cached and revalidated authentication data with SWR, increasing performance by upto 50%.
+2. Added suggested playlists with Youtube's API. Users can play, pause or switch between playlists.
 3. Implemented chat with Pusher. Users can chat in the general channel or in group-specific channels.
 4. Added a feature for creating study notes and saving them. User can see their old notes when they log in the next time.
 5. Created integration specs for new features.
@@ -43,6 +44,21 @@ When using headless mode-
 
 ### Screenshots for frontend 
 
+1. Homepage for unauthenticated users -
+
+<img width="1438" alt="Screenshot 2022-04-20 at 11 26 58 PM" src="https://user-images.githubusercontent.com/56045905/164366323-42c8d308-90df-4580-b4ef-0b17b191f6c4.png">
+
+2. Homepage for authenticated users -
+
+<img width="1437" alt="Screenshot 2022-04-20 at 11 27 47 PM" src="https://user-images.githubusercontent.com/56045905/164366410-ce723b44-d3c0-4596-9ef6-03f40e90ce50.png">
+
+3. Groups page - 
+
+<img width="1440" alt="Screenshot 2022-04-20 at 11 28 08 PM" src="https://user-images.githubusercontent.com/56045905/164366465-1c0cc250-b2bb-48ae-9b55-8deb004c27ce.png">
+
+4. Playlists and Chat features - 
+
+<img width="1436" alt="Screenshot 2022-04-20 at 11 28 37 PM" src="https://user-images.githubusercontent.com/56045905/164366549-54867272-bd2c-4884-8c9f-07dd96049ca1.png">
 
 
 ### Steps to run Backend:
