@@ -50,8 +50,9 @@ const Notes = (props) => {
   }
   return (
     <>
-      <Text mb='8px' fontWeight={'semibold'} fontSize='2xl' fontFamily={'serif'}>Notes</Text>
-      <Textarea
+      <Text mb='8px' data-cy = 'notesheader' fontWeight={'semibold'} fontSize='2xl' fontFamily={'serif'}>Notes</Text>
+          <Textarea
+        data-cy='notes-input'
         value={value}
         onChange={handleInputChange}
         defaultValue={value}
@@ -59,10 +60,10 @@ const Notes = (props) => {
         size='sm'
           />
           <HStack marginTop={2}>
-            <Button  colorScheme='teal' variant='solid' onClick={postNotes}>
+            <Button  data-cy='save-note-btn' colorScheme='teal' variant='solid' onClick={postNotes}>
                         Save for later
                 </Button>
-                <Button  colorScheme='teal' variant='solid' onClick={handleClear}> Clear notes </Button>
+                <Button  data-cy='clear-note-btn'colorScheme='teal' variant='solid' onClick={handleClear}> Clear notes </Button>
           </HStack>
       
     </>
