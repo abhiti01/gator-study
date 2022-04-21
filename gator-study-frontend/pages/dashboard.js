@@ -40,7 +40,7 @@ export default function Dashboard() {
         boxShadow={'2xl'}
         rounded={'lg'}
         p={6} height='100%' width='100%'> <Time /></Box>
-  <Box bg={useColorModeValue('white', 'gray.900')}
+  <Box data-cy='notesbox' bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
         rounded={'lg'}
         p={6} height='100%' width='100%'><>

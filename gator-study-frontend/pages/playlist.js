@@ -224,35 +224,8 @@ export default function Playlist() {
   if (data.items === "undefined") return <div>loading...</div>
   return (
     <>
-{/*     {
-      <ul>
-    {data.items.map(({ id, snippet = {} }) => {
-      const { title, thumbnails = {}, resourceId = {} } = snippet;
-      const { medium } = thumbnails;
-      return (
-
-        <li key={id}>
-          <a href={`https://www.youtube.com/watch?v=${resourceId.videoId}`}>
-            <p>
-              {medium!==undefined && <img width={medium.width} height={medium.height} src={medium.url} alt="" />}
-              
-            </p>
-            <h3>{ title }</h3>
-          </a>
-        </li>
-      )
-    })}
-  </ul>
-      } */}
-      <Text fontWeight={'semibold'} fontSize='2xl' fontFamily={'serif'}>Suggested beats ...</Text>
+      <Text data-cy='music-header' fontWeight={'semibold'} fontSize='2xl' fontFamily={'serif'}>Suggested beats ...</Text>
       {
-//         <SimpleGrid columns={2} spacing={10}>
-//   <Box bg='tomato' height='80px'></Box>
-//   <Box bg='tomato' height='80px'></Box>
-//   <Box bg='tomato' height='80px'></Box>
-//   <Box bg='tomato' height='80px'></Box>
-//   <Box bg='tomato' height='80px'></Box>
-// </SimpleGrid>
         
       <SimpleGrid columns={2} spacing={10}>
           {data.items.map(({ id, snippet = {} }) => {
