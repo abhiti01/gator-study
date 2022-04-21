@@ -18,6 +18,13 @@ Students use tools such as Twitch, Discord, and YouTube as a group study platfor
  - [x] The student can play and control music from YouTube via the web-app.
  - [x] The student can join study sessions. All the users can access Pomodoro timer.
  - [x] All the students in the session can chat with each other to exchange notes and ideas.
+## Demos 
+### Demo of our Application- 
+https://user-images.githubusercontent.com/56045905/164358468-1c2459af-2fd4-4ec7-acca-8903b317d5c4.mp4
+### Tests for our frontend- 
+
+### Tests for our backend - 
+
 
 ## Technologies Involved
 
