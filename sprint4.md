@@ -18,7 +18,11 @@ Targets achieved:
 4. Conducted standup meetings everyday to discuss the progress.
 5. Added Unit test for new developments.
 #### Frontend -
-TODO
+1. Added suggested playlists with Youtube's API. Users can play, pause or switch between playlists.
+3. Implemented chat with Pusher. Users can chat in the general channel or in group-specific channels.
+4. Added a feature for creating study notes and saving them. User can see their old notes when they log in the next time.
+5. Created integration specs for new features.
+6. Improved overall aesthetic of the UI with Chakra.
 
 ### Steps to run Frontend : 
 1. After cloning the repository, run `cd gator-study-frontend`
@@ -38,6 +42,7 @@ When using headless mode-
 <img width="1093" alt="Screen Shot 2022-04-01 at 2 53 52 PM" src="https://user-images.githubusercontent.com/56045952/161330740-13907703-b356-4115-aabf-71c3902fb322.png">
 
 ### Screenshots for frontend 
+
 
 
 ### Steps to run Backend:
