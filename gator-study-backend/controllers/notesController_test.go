@@ -43,5 +43,5 @@ func TestAddNotesWhenFailure(t *testing.T) {
 		t.Errorf("Handler Returned a wrong status code")
 	}
 
-	assert.Equal(t, fiber.StatusNotFound, response.StatusCode)
+	assert.Equal(t, fiber.StatusInternalServerError, response.StatusCode)
 }

@@ -24,7 +24,7 @@ func TestLoginWhenPassWordInCorrect(t *testing.T) {
 		t.Errorf("Handler Returned a wrong status code")
 	}
 
-	assert.Equal(t, fiber.StatusNotFound, response.StatusCode)
+	assert.Equal(t, fiber.StatusInternalServerError, response.StatusCode)
 }
 func TestLoginWhenPassWordCorrect(t *testing.T) {
 	var data = []byte(`{
@@ -129,7 +129,7 @@ func TestLogoutWhenSuccess(t *testing.T) {
 //	}
 //}
 
-func TestUser(t *testing.T) {
+func TestGetUser(t *testing.T) {
 	var data = []byte(`{}`)
 
 	app := fiber.New()
